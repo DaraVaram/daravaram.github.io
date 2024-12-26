@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Real-Time Student Engagement Monitoring on Edge Devices: Deep Learning Meets Efficiency and Privacy"
+date:   2025-04-15 09:00:00 +00:00
+image: /images/educon2025.jpg
+categories: research
+author: "Hamza Ahmed Abushahla"
+authors: "<strong>Hamza Ahmed Abushahla</strong>, Rana Gharaibeh, Lodan Elmugamer, Ali Reza Sajun, Imran A. Zualkernan"
+venue: "IEEE Global Engineering Education Conference (EDUCON), 2025 (Accepted for Publication)"
+conference: https://2025.ieee-educon.org
+---
+This work explores the deployment of deep learning models on resource-constrained edge devices to monitor student engagement in real time, with an emphasis on efficiency and privacy.
