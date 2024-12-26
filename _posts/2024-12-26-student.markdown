@@ -5,7 +5,7 @@ date:   2024-12-26 09:00:00 +00:00
 image: /images/student.png
 categories: research
 author: "Hamza Ahmed Abushahla"
-authors: "<strong>Hamza Ahmed Abushahla</strong>, Rana Gharaibeh, Lodan Elmugamer, Ali Reza Sajun, Imran A. Zualkernan"
+authors: "<strong>Hamza Abushahla</strong>, Rana Gharaibeh, Lodan Elmugamer, Ali Reza Sajun, Imran A. Zualkernan"
 venue: "IEEE Global Engineering Education Conference (EDUCON), 2025 (Accepted for Publication)"
 conference: https://2025.ieee-educon.org
 ---
