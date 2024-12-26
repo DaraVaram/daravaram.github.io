@@ -83,43 +83,42 @@
               <h3>{{post.title}}</h3>
               <br>
               {{post.authors}}
-
               <br>
               <em>{{post.venue}}</em>
               <br>
               {% if post.arxiv %}
-              <a href="{{post.arxiv}}">arxiv</a> |
+              [<a href="{{ post.arxiv }}">arxiv</a>]
               {% endif %}
               {% if post.code %}
-              <a href="{{post.code}}">code</a> |
+              [<a href="{{ post.code }}">Code</a>]
               {% endif %}
               {% if post.video %}
-              <a href="{{post.video}}">video</a> |
+              [<a href="{{ post.video }}">Video</a>]
               {% endif %}
               {% if post.paper %}
-              <a href="{{post.paper}}">paper</a> |
+              [<a href="{{ post.paper }}">Paper</a>]
               {% endif %}
               {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> |
+              [<a href="{{ post.poster }}">Poster</a>]
               {% endif %}
               {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> |
+              [<a href="{{ post.slides }}">Slides</a>]
               {% endif %}
               {% if post.website %}
-              <a href="{{post.website}}">website</a> |
+              [<a href="{{ post.website }}">Webpage</a>]
               {% endif %}
               {% if post.youtube %}
-              <a href="{{post.youtube}}">youtube</a> |
+              [<a href="{{ post.youtube }}">YouTube</a>]
               {% endif %}
               {% if post.pdf %}
-              <a href="{{post.pdf}}">pdf</a> |
+              [<a href="{{ post.pdf }}">PDF</a>]
               {% endif %}
               <p></p>
               {{ post.excerpt }}
             </td>
           </tr>
           {% endif %}
-          {% if cat == 'internship' %}
+          <!-- {% if cat == 'internship' %}
           <tr>
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
               <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
@@ -158,7 +157,7 @@
               {% endif %}
               <p></p>
               {{ post.excerpt }}
-            </td>
+            </td> -->
           </tr>
           {% endif %}
           {% endfor %}
