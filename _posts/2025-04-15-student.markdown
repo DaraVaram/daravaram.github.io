@@ -2,7 +2,7 @@
 layout: post
 title:  "Real-Time Student Engagement Monitoring on Edge Devices: Deep Learning Meets Efficiency and Privacy"
 date:   2025-04-15 09:00:00 +00:00
-image: /images/educon2025.jpg
+image: /images/student.png
 categories: research
 author: "Hamza Ahmed Abushahla"
 authors: "<strong>Hamza Ahmed Abushahla</strong>, Rana Gharaibeh, Lodan Elmugamer, Ali Reza Sajun, Imran A. Zualkernan"
