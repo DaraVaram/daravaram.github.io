@@ -233,7 +233,8 @@
         </table>
         <br>
         <br>
-        <br>
+        <br> -->
+        
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
@@ -247,7 +248,7 @@
 
           {% for post in site.posts %}
           {% for cat in post.categories %}
-          {% if cat != 'research' and cat != 'Intel' %}
+          {% if cat == 'other' %}
           <tr>
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
               <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
@@ -260,35 +261,32 @@
               {{ post.date | date: "%Y-%m-%d" }}
 
               <br>
-              {% if post.website %}
-              <a href="{{post.website}}">website</a> /
-              {% endif %}
-              {% if post.paper %}
-              <a href="{{post.paper}}">paper</a> /
-              {% endif %}
-              {% if post.patent %}
-              <a href="{{post.patent}}">patent</a> /
-              {% endif %}
-              {% if post.patent2 %}
-              <a href="{{post.patent2}}">patent #2</a> /
-              {% endif %}
-              {% if post.patent3 %}
-              <a href="{{post.patent3}}">patent #3</a> /
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> /
-              {% endif %}
-              {% if post.video2 %}
-              <a href="{{post.video2}}">video #2</a> /
+              {% if post.arxiv %}
+              [<a href="{{ post.arxiv }}">arxiv</a>]
               {% endif %}
               {% if post.code %}
-              <a href="{{post.code}}">code</a> /
+              [<a href="{{ post.code }}">Code</a>]
+              {% endif %}
+              {% if post.video %}
+              [<a href="{{ post.video }}">Video</a>]
+              {% endif %}
+              {% if post.paper %}
+              [<a href="{{ post.paper }}">Paper</a>]
               {% endif %}
               {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> /
+              [<a href="{{ post.poster }}">Poster</a>]
               {% endif %}
               {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> /
+              [<a href="{{ post.slides }}">Slides</a>]
+              {% endif %}
+              {% if post.website %}
+              [<a href="{{ post.website }}">Webpage</a>]
+              {% endif %}
+              {% if post.youtube %}
+              [<a href="{{ post.youtube }}">YouTube</a>]
+              {% endif %}
+              {% if post.pdf %}
+              [<a href="{{ post.pdf }}">PDF</a>]
               {% endif %}
               <p></p>
               {{ post.excerpt }}
@@ -297,7 +295,7 @@
           {% endif %}
           {% endfor %}
           {% endfor %}
-        </table> -->
+        </table>
 
         <hr>
 
