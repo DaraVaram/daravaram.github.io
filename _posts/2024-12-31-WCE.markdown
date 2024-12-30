@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Wireless Capsule Endoscopy Image Classification: An Explainable AI Approach"
+date:   2023-09-25 09:00:00 +00:00
+image: /images/WCE.png
+categories: research
+author: "Dara Varam"
+authors: "<strong>Dara Varam</strong>, Rohan Mitra, Meriam Mkadmi, Radi Aman Riyas, Diaa A. Abuhani, Salam Dhou, and Ayman Alzaatreh"
+venue: "IEEE Access, Vol. 11 (IEEE ENGINEERING IN MEDICINE AND BIOLOGY SOCIETY SECTION)"
+website: https://ieeexplore.ieee.org/abstract/document/10262261
+code:
+---
+
+We explore eXplainable AI techniques on a Wireless Capsule Endoscopy dataset (publicly available) to better understand model decision-making and classification. 
