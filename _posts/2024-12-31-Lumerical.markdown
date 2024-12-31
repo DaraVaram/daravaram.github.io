@@ -2,7 +2,7 @@
 layout: post
 title:  "Lumerical Simulation of Surface-illuminated Silicon PIN Photodiodes for Datacenter Interconnects"
 date:   2022-12-27 09:00:00 +00:00
-image: /images/Lumerical.png
+image: /images/Lumerical.jpg
 categories: research
 author: "Dara Varam"
 authors: "S. Ghandiparsi, D. B. Hamadou, <strong>D. Varam</strong>, A. Soufi, T. Landolsi, A. F. Elrefaie, A. S. Mayet, C. B. Perez, E. P. Devine, S. Y. Wang, T. Yamada, M. S. Islam"
