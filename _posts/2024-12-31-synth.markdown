@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Development of Synthetic Data Benchmarks for Evaluating Feature Selection Algorithms"
+date:   2022-12-22 09:00:00 +00:00
+image: /images/Synth1.png
+categories: research
+author: "Dara Varam"
+authors: "Rohan Mitra, <strong>Dara Varam</strong>, Eyad Ali, Hana Sulieman, Firuz Kamalov"
+venue: "[IEEE] International Seminar on Machine Learning, Optimization, and Data Science (ISMODE)"
+website: https://ieeexplore.ieee.org/abstract/document/10180928
+code: 
+---
+
+Developing synthetic datasets for benchmarking the performance of feature selection algorithms. First of two works that explores the field.
