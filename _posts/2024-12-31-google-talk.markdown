@@ -2,7 +2,7 @@
 layout: post
 title:  "eXplainable AI for Image Classification Tasks in Medicine"
 date:   2024-08-18 09:00:00 +00:00
-image: /images/google-talk.png
+image: https://github.com/DaraVaram/daravaram.github.io/blob/master/images/google-talk.png
 categories: Presentation
 author: "Dara Varam"
 authors: "<strong>Dara Varam</strong>"
