@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Construction of Multiplicative Groups of Polynomials with Non-Zero Identities in /(\mathbb{Z}_p [x]/)"
+title:  "Construction of Multiplicative Groups of Polynomials with Non-Zero Identities in Z_p[x]"
 date:   2023-05-20 09:00:00 +00:00
 image: /images/zp.png
 categories: research
