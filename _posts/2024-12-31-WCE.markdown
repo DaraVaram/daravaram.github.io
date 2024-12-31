@@ -6,7 +6,7 @@ image: /images/WCE.png
 categories: research
 author: "Dara Varam"
 authors: "<strong>Dara Varam</strong>, Rohan Mitra, Meriam Mkadmi, Radi Aman Riyas, Diaa A. Abuhani, Salam Dhou, and Ayman Alzaatreh"
-venue: "IEEE Access, Vol. 11 (IEEE ENGINEERING IN MEDICINE AND BIOLOGY SOCIETY SECTION)"
+venue: "IEEE Access, Vol. 11 (IEEE Engineering in Medicine and Biology Society Section)"
 website: https://ieeexplore.ieee.org/abstract/document/10262261
 code:
 ---
