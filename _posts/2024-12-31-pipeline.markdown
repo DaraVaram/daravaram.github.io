@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "A Hybrid Rolling and Flying Robot for Pipeline Fault Detection Using Deep Learning"
+date:   2023-02-20 09:00:00 +00:00
+image: /images/pipeline-fault.png
+categories: research
+author: "Dara Varam"
+authors: "Megan Ghaly, Rohan Mitra, Abdullah Al Rayess, Assem Ahmed, <strong>D. Varam</strong>, Mohammad A. Jaradat, Michel Pasquier, Ahmed Khalil"
+venue: "[IEEE] Advances in Science and Engineering Technology International Conferences (ASET)"
+website: https://ieeexplore.ieee.org/abstract/document/10180770
+code: 
+---
+
+Designed, built and programmed a hybrid drone designed for detecting faults on the bodies of oil and gas pipelines. 
