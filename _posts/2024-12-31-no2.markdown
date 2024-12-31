@@ -11,4 +11,4 @@ website:
 code: 
 ---
 
-We study trends in NO2 levels through publicly available data, specifically in the Lombardy region of Italy.
+We study trends in NO2 levels through publicly available geospatial data, specifically in the Lombardy region of Italy.
