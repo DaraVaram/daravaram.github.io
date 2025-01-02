@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "THIS IS A TEST"
+date:   2022-12-27 09:00:00 +00:00
+image: /images/Lumerical.jpg
+categories: research
+author: "Dara Varam"
+authors: "<strong> Dara Varam</strong>"
+venue: "THIS IS A TEST"
+website: https://ieeexplore.ieee.org/document/10019094
+code: 
+---
+
+Studying different characteristics of two novel silicon photodiode (SiPD) devices at small- and large-scale.
