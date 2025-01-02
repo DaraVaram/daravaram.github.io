@@ -3,7 +3,7 @@ layout: post
 title:  "Estimating Nitrogen Dioxide Levels Using Open Data and Machine Learning: A Comparative Modeling Study"
 date:   2025-04-08 09:00:00 +00:00
 image: /images/NO2.png
-categories: internship
+categories: other
 author: "Dara Varam"
 authors: "<strong>Dara Varam</strong>, Rohan Mitra, Furzeen Kamran, Diaa A. Abuhani, Hana Sulieman, Imran Zualkernan"
 venue: "International Society for Photogrammetry and Remote Sensing (ISPRS)"
