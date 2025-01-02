@@ -1,0 +1,12 @@
+layout: post
+title:  "Estimating Nitrogen Dioxide Levels Using Open Data and Machine Learning: A Comparative Modeling Study"
+date:   2025-04-08 09:00:00 +00:00
+image: /images/NO2.png
+categories: other
+author: "Dara Varam"
+authors: "<strong>Dara Varam</strong>, Rohan Mitra, Furzeen Kamran, Diaa A. Abuhani, Hana Sulieman, Imran Zualkernan"
+venue: "International Society for Photogrammetry and Remote Sensing (ISPRS)"
+paper: https://2025.ieee-educon.org
+code: https://github.com/7abushahla/engagement
+---
+We study trends in NO2 levels through publicly available geospatial data, specifically in the Lombardy region of Italy.
