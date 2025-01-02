@@ -27,44 +27,50 @@
 
 <body>
   <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tr style="padding:0px">
+    <tr style="padding:0px;">
       <td style="padding:0px">
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr style="padding:0px">
+          <tr style="padding:0px; background-color: rgba(128, 0, 128, 0.15); border-radius: 10px; padding: 20px; margin: 0 auto; width: fit-content;">
             <td style="padding:2.5%;width:60%;vertical-align:middle">
               <h1>
-                Hamza Ahmed Abushahla
-              </h1>
-              <p>
-                I'm a Master's student in Machine Learning at the <a href="https://www.aus.edu">American University of Sharjah</a>, where I also earned my B.Sc. in Computer Engineering and a minor in Engineering Management.</p>
-              <p>
-                I currently work as a research and teaching assistant in the <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">department of Computer Science and Engineering</a>. My research focuses mainly on model compression, optimizaztion and quantization for deploying neural networks on resource-constrained edge devices. 
-              </p>
-              <p>
-                My expertise includes quantization techniques like integer and mixed-precision quantization, entropy coding, and privacy-preserving methods in edge computing. Additionally, I explore energy-efficient computing and intelligent autonomous robotics.
-              </p>
+              Dara Varam
+            </h1>
+            <p>
+              MS Machine Learning @ <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering"> AUS</a>. I did my undergrad here in Computer Engineering and Mathematics with a minor in Data Science. 
+            </p>
+            <p>
+              I currently work as a research and teaching assistant in the department. My research focuses mainly on model compression, optimizaztion and quantization for neural networks and LLMs. I have also done studies in training optimization, computer vision, and eXplainable AI. 
+            </p>
+
+            <p>
+              The picture on the right isn't what I look like now. I just wanted to put it up there so you know I've always been cool. 
+            </p>
                 
               <p style="text-align:center">
-                <a target="_blank" href="mailto:hamzaahmed.ha24@gmail.com">Email</a> &nbsp;|&nbsp;
-                <a target="_blank" href="pdfs/cv.pdf">CV</a> &nbsp;|&nbsp;
-                <a href="https://www.linkedin.com/in/hamza-abushahla/">LinkedIn</a> &nbsp;|&nbsp;
-                <a href="https://github.com/7abushahla">GitHub</a>
-              </p>
+              <a target="_blank" href="mailto:b00081313@aus.edu">Email</a> &nbsp;|&nbsp;
+              <a target="_blank" href="pdfs/cv.pdf">CV</a> &nbsp;|&nbsp;
+              <a href="https://www.linkedin.com/in/dara-varam/">LinkedIn</a> &nbsp;|&nbsp;
+              <a href="https://github.com/daravaram">GitHub</a> &nbsp;|&nbsp;
+              <a href="https://www.researchgate.net/profile/Dara-Varam">ResearchGate</a> &nbsp;|&nbsp;
+              <a href="https://scholar.google.com/citations?user=7bDpvdYAAAAJ&hl=en&authuser=2">Scholar</a>
+            </p>
             </td>
             <td style="padding:2.5%;width:40%;max-width:40%">
-              <img style="width:95%;max-width:100%;border-radius:50%;" alt="profile photo" src="images/profile_image_compressed.jpg">
+              <img style="width:95%;max-width:100%;border-radius:50%;" alt="profile photo" src="images/profile-picture2.jpg">
             </td>
           </tr>
         </table>
-
+  
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Publications</h2>
+              <p> These are papers that have already been published, as reflected on my Google Scholar page (and other venues).
+              </p>
             </td>
           </tr>
         </table>
-
+       
         <!-- The <hr> line now appears immediately after the Publications heading -->
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
@@ -88,19 +94,19 @@
               <br>
               {{post.authors}}
               <br>
-              <em>{{post.venue}}</em>
+              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
               <br>
               {% if post.arxiv %}
               [<a href="{{ post.arxiv }}">arxiv</a>]
-              {% endif %}
-              {% if post.paper %}
-              [<a href="{{ post.paper }}">Paper</a>]
               {% endif %}
               {% if post.code %}
               [<a href="{{ post.code }}">Code</a>]
               {% endif %}
               {% if post.video %}
               [<a href="{{ post.video }}">Video</a>]
+              {% endif %}
+              {% if post.paper %}
+              [<a href="{{ post.paper }}">Paper</a>]
               {% endif %}
               {% if post.poster %}
               [<a href="{{ post.poster }}">Poster</a>]
@@ -122,60 +128,97 @@
             </td>
           </tr>
           {% endif %}
-          <!-- {% if cat == 'internship' %}
-          <tr>
-            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
-            </td>
-            <td style="padding:2.5%;width:75%;vertical-align:middle">
-              <h3>{{post.title}}</h3>
-              <br>
-              {{post.authors}}
-
-              <br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}, <p style="display: inline; color: #4d02cf; font-weight: bold;">[Internship]</p>
-              <br>
-              {% if post.arxiv %}
-              <a href="{{post.arxiv}}">arxiv</a> |
-              {% endif %}
-              {% if post.code %}
-              <a href="{{post.code}}">code</a> |
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> |
-              {% endif %}
-              {% if post.paper %}
-              <a href="{{post.paper}}">paper</a> |
-              {% endif %}
-              {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> |
-              {% endif %}
-              {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> |
-              {% endif %}
-              {% if post.website %}
-              <a href="{{post.website}}">website</a> |
-              {% endif %}
-              {% if post.youtube %}
-              <a href="{{post.youtube}}">youtube</a> |
-              {% endif %}
-              <p></p>
-              {{ post.excerpt }}
-            </td> -->
-          </tr>
-          {% endif %}
           {% endfor %}
           {% endfor %}
         </table>
      
         <br>
         <br>
-<!--         
+
+        <!-- Submitted Papers Section -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Submitted Papers</h2>
+              <p>These are papers that have been submitted for publication, but have not yet been released.</p>
+            </td>
+          </tr>
+        </table>
+        
+        <!-- Horizontal line below the section title -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:0px">
+              <hr>
+            </td>
+          </tr>
+        </table>
+        
+        <!-- Display the posts with 'submitted' category -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          {% for post in site.posts %}
+            {% if post.categories == 'internship' %}
+              <tr>
+                <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+                  <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+                </td>
+                <td style="padding:2.5%;width:75%;vertical-align:middle">
+                  <h3>{{post.title}}</h3>
+                  <br>
+                  {{post.authors}}
+                  <br>
+                  <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+                  <br>
+                  {% if post.arxiv %}
+                    [<a href="{{ post.arxiv }}">arxiv</a>]
+                  {% endif %}
+                  {% if post.code %}
+                    [<a href="{{ post.code }}">Code</a>]
+                  {% endif %}
+                  {% if post.video %}
+                    [<a href="{{ post.video }}">Video</a>]
+                  {% endif %}
+                  {% if post.paper %}
+                    [<a href="{{ post.paper }}">Paper</a>]
+                  {% endif %}
+                  {% if post.poster %}
+                    [<a href="{{ post.poster }}">Poster</a>]
+                  {% endif %}
+                  {% if post.slides %}
+                    [<a href="{{ post.slides }}">Slides</a>]
+                  {% endif %}
+                  {% if post.website %}
+                    [<a href="{{ post.website }}">Webpage</a>]
+                  {% endif %}
+                  {% if post.youtube %}
+                    [<a href="{{ post.youtube }}">YouTube</a>]
+                  {% endif %}
+                  {% if post.pdf %}
+                    [<a href="{{ post.pdf }}">PDF</a>]
+                  {% endif %}
+                  <p></p>
+                  {{ post.excerpt }}
+                </td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+
+
+
+
+        
+        <br>
+        <br>
+
+        
+
+         
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Presentations</h2>
-              <p>Includes NSF REU internship final presentations, conference presentations, and symposium oral presentations.
+              <p>Includes presentations conducted online and in-person. 
               </p>
             </td>
           </tr>
@@ -187,7 +230,7 @@
           {% if cat == 'Presentation' %}
           <tr>
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
             </td>
             <td style="padding:2.5%;width:75%;vertical-align:middle">
               <h3>{{post.title}}</h3>
@@ -237,12 +280,12 @@
         </table>
         <br>
         <br>
-        <br> -->
+        <br> 
         
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2>Projects</h2>
+              <h2>Research Projects</h2>
               <p> These include coursework, side projects and unpublished research work. 
               </p>
             </td>
@@ -252,15 +295,13 @@
 
           {% for post in site.posts %}
           {% for cat in post.categories %}
-          {% if cat != 'research' %}
+          {% if cat == 'other' %}
           <tr>
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+              <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
             </td>
             <td style="padding:2.5%;width:75%;vertical-align:middle">
               <h3>{{post.title}}</h3>
-              <br>
-              {{post.authors}}
               <br>
               <em>{{post.categories}} {{post.course}}</em>
               <br>
@@ -270,16 +311,15 @@
               {% if post.arxiv %}
               [<a href="{{ post.arxiv }}">arxiv</a>]
               {% endif %}
-              {% if post.paper %}
-              [<a href="{{ post.paper }}">Paper</a>]
-              {% endif %}
               {% if post.code %}
               [<a href="{{ post.code }}">Code</a>]
               {% endif %}
               {% if post.video %}
               [<a href="{{ post.video }}">Video</a>]
               {% endif %}
-
+              {% if post.paper %}
+              [<a href="{{ post.paper }}">Paper</a>]
+              {% endif %}
               {% if post.poster %}
               [<a href="{{ post.poster }}">Poster</a>]
               {% endif %}
