@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Exploring Cultural Biases of Arabic-Speaking Large Language Models: A Word Embedding Perspective"
-date:   2025-03-14 09:00:00 +00:00
+date:   2025-03-13 09:00:00 +00:00
 image: /images/Arabic-LLMs-Bias-Eval.png
 categories: submitted
 author: "Dara Varam"
