@@ -352,62 +352,67 @@
         <br>
         
 
-         
+        <!-- Presentations Section -->
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Presentations, Features</h2>
-              <p>Includes presentations conducted online and in-person, and other miscellaneous academic things I've been featured in.  
-              </p>
+              <p>Includes presentations conducted online and in-person, and other miscellaneous academic things I've been featured in. </p>
             </td>
           </tr>
         </table>
+        
+        <!-- Horizontal line below the section title -->
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:0px">
+              <hr>
+            </td>
+          </tr>
+        </table>
+        
+               <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
 
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'Presentation' %}
           <tr>
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
             </td>
             <td style="padding:2.5%;width:75%;vertical-align:middle">
               <h3>{{post.title}}</h3>
               <br>
-              <em>{{post.categories}} {{post.course}}</em>
+              {{post.authors}}
               <br>
-              {{ post.date | date: "%Y-%m-%d" }}
-
+              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
               <br>
-              {% if post.website %}
-              <a href="{{post.website}}">website</a> /
-              {% endif %}
-              {% if post.paper %}
-              <a href="{{post.paper}}">paper</a> /
-              {% endif %}
-              {% if post.patent %}
-              <a href="{{post.patent}}">patent</a> /
-              {% endif %}
-              {% if post.patent2 %}
-              <a href="{{post.patent2}}">patent #2</a> /
-              {% endif %}
-              {% if post.patent3 %}
-              <a href="{{post.patent3}}">patent #3</a> /
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> /
-              {% endif %}
-              {% if post.video2 %}
-              <a href="{{post.video2}}">video #2</a> /
+              {% if post.arxiv %}
+              [<a href="{{ post.arxiv }}">arxiv</a>]
               {% endif %}
               {% if post.code %}
-              <a href="{{post.code}}">code</a> /
+              [<a href="{{ post.code }}">Code</a>]
+              {% endif %}
+              {% if post.video %}
+              [<a href="{{ post.video }}">Video</a>]
+              {% endif %}
+              {% if post.paper %}
+              [<a href="{{ post.paper }}">Paper</a>]
               {% endif %}
               {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> /
+              [<a href="{{ post.poster }}">Poster</a>]
               {% endif %}
               {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> /
+              [<a href="{{ post.slides }}">Slides</a>]
+              {% endif %}
+              {% if post.website %}
+              [<a href="{{ post.website }}">Webpage</a>]
+              {% endif %}
+              {% if post.youtube %}
+              [<a href="{{ post.youtube }}">YouTube</a>]
+              {% endif %}
+              {% if post.pdf %}
+              [<a href="{{ post.pdf }}">PDF</a>]
               {% endif %}
               <p></p>
               {{ post.excerpt }}
