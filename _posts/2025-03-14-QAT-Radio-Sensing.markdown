@@ -5,7 +5,7 @@ date:   2025-03-14 09:00:00 +00:00
 image: /images/QAT-Radio-Sensing.PNG
 categories: submitted
 author: "Dara Varam"
-authors: "H. A. Abushahla, <strong>D. Varam</strong>, M. I. AlHajri"
+authors: "H. A. Abushahla, <strong>D. Varam</strong>, [M. I. AlHajri](https://scholar.google.com/citations?user=d_ameTYAAAAJ&hl=en)"
 venue: "IEEE Communications Letters"
 website: 
 code: 
