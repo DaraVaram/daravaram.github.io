@@ -303,76 +303,128 @@
 
         <br>
 
-        <!-- —————————————————————————————————————————— -->
-        <!-- Clustrmaps Widget Section (Rounded, Light Yellow) -->
+        <br>
+
+        <!-- Presentations Section (More Compact) -->
         <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
           <tr>
-            <td style="padding:0;">
-              <div style="background-color: rgba(255, 255, 224, 0.5); border-radius: 10px; padding: 10px; margin: 0 auto; width: auto; text-align: center;">
-                <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=jtbmukWWXKhcIy6VJ0sPL32ZngLonG3uCCTt6HnqkxI"></script>
-              </div>
+            <td style="padding:1%; width:100%; vertical-align:middle;">
+              <h2 style="margin:0 0 5px 0;">Presentations, Features</h2>
+              <p style="margin:0;">Includes presentations conducted online and in-person, and other miscellaneous academic things I've been featured in.</p>
             </td>
           </tr>
+        </table>
+        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
+          <tr>
+            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
+          </tr>
+        </table>
+        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
+          {% for post in site.posts %}
+          {% for cat in post.categories %}
+          {% if cat == 'Presentation' %}
+          <tr>
+            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
+              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
+            </td>
+            <td style="padding:1%; width:75%; vertical-align:middle;">
+              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
+              <p style="margin:0;">{{post.authors}}<br>
+              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
+              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
+              {% if post.code %}[<a href="{{ post.code }}">Code</a>]{% endif %}
+              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
+              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
+              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
+              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
+              {% if post.website %}[<a href="{{ post.website }}">Webpage</a>]{% endif %}
+              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
+              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
+              <p style="margin:0;">{{ post.excerpt }}</p>
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
         </table>
 
         <br>
 
         <!-- Miscellanea Section (More Compact) -->
-        <table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:8px;">
-          <tbody>
-            <tr>
-              <td>
-                <h2 style="margin:0;">Miscellanea</h2>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tbody>
-            <tr>
-              <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
-                <div class="colored-box" style="background-color: #9e72d4; border-radius: 12px; padding: 8px;">
-                  <h2 style="margin:0;">Teaching Assistantships</h2>
-                </div>
-              </td>
-              <td style="padding:8px; width:80%; vertical-align:middle; border-radius: 12px;">
-                - <strong>[Software]</strong> CMP120 / CMP220 / CMP305 / CMP320 - Programming I &amp; II, Data Structures &amp; Algorithms, Database Systems
-                <br>
-                - <strong>[Hardware]</strong> COE242 / COE251 - Microcontrollers &amp; Embedded Systems, Intro. to Computer Systems
-                <br>
-                - <strong>[Networks]</strong> COE271 - Computer Networks I
-                <br>
-                - <strong>[Mathematics]</strong> MTH103 / MTH104 / MTH203 / MTH205 / MTH221 - Calculus I, II &amp; III, Differential Equations, Linear Algebra
-              </td>
-            </tr>
-            <tr>
-              <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
-                <div class="colored-box" style="background-color: #8634eb; border-radius: 12px; padding: 8px;">
-                  <h2 style="margin:0;">Awards &amp; Honors</h2>
-                </div>
-              </td>
-              <td style="padding:8px; width:80%; vertical-align:middle; border-radius: 12px;">
-                - 1st place at the <a href="https://www.aus.edu/media/news/aus-inaugural-ai-city-quest-hackathon-challenges-uae-students-to-develop-smart-city-solutions-using-ai-and-blockchain">AI-City Quest</a> Hackathon.
-                <br>
-                - 2nd place at the <a href="https://www.aus.edu/media/news/aus-student-teams-excel-in-planet-x-challenge">Planet-X</a> Mars Rover Mission challenge.
-                <br>
-                - Member of the <a href="https://hkn.ieee.org/">IEEE-Eta Kappu Nu</a> Honors society
-                <br>
-                - Member of the AUS Engineering Honors society
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <hr style="margin: 5px 0;">
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:0;">
-              <p style="text-align:center; font-size:small; margin:0;">
-                Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of <a style="font-size:small;" href="https://jonbarron.info">Jon Barron's website</a>.
-              </p>
-            </td>
-          </tr>
-        </table>
+<table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:8px;">
+  <tbody>
+    <tr>
+      <td>
+        <h2 style="margin:0;">Miscellanea</h2>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
+  <tbody>
+    <!-- Teaching Assistantships Row -->
+    <tr>
+      <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
+        <div class="colored-box" style="background-color: #9e72d4; border-radius: 12px; padding: 8px;">
+          <h2 style="margin:0;">Teaching Assistantships</h2>
+        </div>
+      </td>
+      <td style="padding:8px; width:80%; vertical-align:middle; border-radius: 12px;">
+        - <strong>[Software]</strong> CMP120 / CMP220 / CMP305 / CMP320 – Programming I &amp; II, Data Structures &amp; Algorithms, Database Systems  
+        <br>
+        - <strong>[Hardware]</strong> COE242 / COE251 – Microcontrollers &amp; Embedded Systems, Intro. to Computer Systems  
+        <br>
+        - <strong>[Networks]</strong> COE271 – Computer Networks I  
+        <br>
+        - <strong>[Mathematics]</strong> MTH103 / MTH104 / MTH203 / MTH205 / MTH221 – Calculus I, II &amp; III, Differential Equations, Linear Algebra
+      </td>
+    </tr>
+
+    <!-- Awards & Honors Row -->
+    <tr>
+      <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
+        <div class="colored-box" style="background-color: #8634eb; border-radius: 12px; padding: 8px;">
+          <h2 style="margin:0;">Awards &amp; Honors</h2>
+        </div>
+      </td>
+      <td style="padding:8px; width:80%; vertical-align:middle; border-radius: 12px;">
+        - 1st place at the <a href="https://www.aus.edu/media/news/aus-inaugural-ai-city-quest-hackathon-challenges-uae-students-to-develop-smart-city-solutions-using-ai-and-blockchain">AI-City Quest</a> Hackathon.  
+        <br>
+        - 2nd place at the <a href="https://www.aus.edu/media/news/aus-student-teams-excel-in-planet-x-challenge">Planet-X</a> Mars Rover Mission challenge.  
+        <br>
+        - Member of the <a href="https://hkn.ieee.org/">IEEE-Eta Kappu Nu</a> Honors society  
+        <br>
+        - Member of the AUS Engineering Honors society
+      </td>
+    </tr>
+
+    <!-- New “Visitor Map” Row with Clustrmaps Widget -->
+    <tr>
+      <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
+        <div class="colored-box" style="background-color: rgba(255, 255, 224, 0.5); border-radius: 12px; padding: 8px;">
+          <h2 style="margin:0;">Visitor Map</h2>
+        </div>
+      </td>
+      <td style="padding:8px; width:80%; vertical-align:middle; border-radius: 12px;">
+        <script
+          type="text/javascript"
+          id="clustrmaps"
+          src="//clustrmaps.com/map_v2.js?d=jtbmukWWXKhcIy6VJ0sPL32ZngLonG3uCCTt6HnqkxI&cl=ffffff&w=a">
+        </script>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr style="margin: 5px 0;">
+<table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
+  <tr>
+    <td style="padding:0;">
+      <p style="text-align:center; font-size:small; margin:0;">
+        Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of <a style="font-size:small;" href="https://jonbarron.info">Jon Barron's website</a>.
+      </p>
+    </td>
+  </tr>
+</table>
 
       </td>
     </tr>
