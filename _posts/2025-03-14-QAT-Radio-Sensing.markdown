@@ -3,7 +3,7 @@ layout: post
 title:  "Cognitive Radio Spectrum Sensing on the Edge: A Quantization-Aware Deep Learning Approach"
 date:   2025-03-14 09:00:00 +00:00
 image: /images/QAT-Radio-Sensing.PNG
-categories: submitted
+categories: accepted
 author: "Dara Varam"
 authors: "H. A. Abushahla, <strong>D. Varam</strong>, M. I. AlHajri"
 venue: "IEEE Communications Letters"
