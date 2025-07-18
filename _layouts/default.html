@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E00L9PT3V9"></script>
@@ -8,432 +7,688 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-E00L9PT3V9');
   </script>
   <title>{{ site.name }}</title>
-
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <meta name="author" content="{{ site.name }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="images/goblin.svg" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Profile Section */
+    .profile-section {
+      background-color: rgba(128, 0, 128, 0.15);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .profile-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-content {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 25px;
+    }
+    
+    .profile-text {
+      flex: 1;
+    }
+    
+    .profile-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    
+    .profile-text p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    
+    .profile-image {
+      flex-shrink: 0;
+    }
+    
+    .profile-image img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(128, 0, 128, 0.3);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: rgba(128, 0, 128, 0.1);
+      border-radius: 25px;
+      text-decoration: none;
+      color: #6b46c1;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: rgba(128, 0, 128, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    /* Academic Qualifications Section */
+    .academic-section {
+      background-color: rgba(231, 223, 198, 1);
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .academic-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .academic-section h2 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 1.8rem;
+    }
+    
+    .qualifications-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .course-box {
+      background-color: rgba(215, 173, 13, 0.5);
+      border-radius: 10px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .course-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .course-box h3 {
+      margin-bottom: 15px;
+      color: #333;
+      font-size: 1.2rem;
+    }
+    
+    .course-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .course-box li {
+      margin-bottom: 8px;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    
+    .thesis-section {
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+    }
+    
+    .thesis-section h3 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    .thesis-section h4 {
+      margin-bottom: 10px;
+      color: #6b46c1;
+      font-size: 1.1rem;
+    }
+    
+    /* Publications Section */
+    .publications-section {
+      margin-bottom: 40px;
+    }
+    
+    .section-header {
+      margin-bottom: 25px;
+    }
+    
+    .section-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    
+    .section-header p {
+      color: #666;
+      font-size: 1rem;
+    }
+    
+    .publication-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+    
+    .publication-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-color: rgba(128, 0, 128, 0.3);
+    }
+    
+    .pub-content {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    
+    .pub-image {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    
+    .pub-details {
+      flex: 1;
+    }
+    
+    .pub-details h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    .authors {
+      color: #666;
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+    
+    .venue {
+      color: #6b46c1;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+    
+    .paper-links {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .paper-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(128, 0, 128, 0.1);
+      border-radius: 20px;
+      text-decoration: none;
+      color: #6b46c1;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .paper-links a:hover {
+      background: rgba(128, 0, 128, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .abstract {
+      color: #555;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    
+    /* Miscellanea Section */
+    .misc-section {
+      margin-bottom: 40px;
+    }
+    
+    .misc-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+    
+    .misc-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .misc-card h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .misc-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .misc-card li {
+      margin-bottom: 10px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .misc-card strong {
+      color: #6b46c1;
+    }
+    
+    /* Special styling for colored boxes in miscellanea */
+    .colored-box {
+      display: inline-block;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      min-width: 120px;
+    }
+    
+    .visitor-map {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+    
+    .visitor-map:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .visitor-map h3 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 50px;
+    }
+    
+    footer p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    footer a {
+      color: #6b46c1;
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .profile-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .profile-image img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .qualifications-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .pub-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .pub-image {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      
+      .paper-links {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <table style="width:100%; max-width:800px; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-    <tr>
-      <td style="padding:0;">
-        <!-- Profile Introduction Section -->
-        <div style="background-color: rgba(128, 0, 128, 0.15); border-radius: 10px; padding: 20px; margin: 0 auto; width: fit-content;">
-          <table style="width:100%; border:0; border-spacing:0; border-collapse:separate;">
-            <tr>
-              <td style="padding:2.5%; width:60%; vertical-align:middle;">
-                <h1>Dara Varam</h1>
-                <p>
-                  MS Machine Learning @ <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">AUS</a>. I did my undergrad here in Computer Engineering and Mathematics with a minor in Data Science. I'm Iranian and I'm 23 years old.
-                </p>
-                <p>
-                  I'm currently a visiting student @ <a href="https://senseable.mit.edu/">MIT Senseable City Lab</a>. I also work as a research & teaching assistant with the Department of Computer Science & Engineering  @ <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">AUS</a>.
-                  
-                </p>
-                <p>
-                  My research focuses mainly on model compression, optimization and quantization for neural networks and LLMs. I have also done studies in training optimization, computer vision, and eXplainable AI.
-                </p>
-                <p>
-                  The picture on the right isn't what I look like now. I just wanted to put it up there so you know I've always been cool &#128122;
-                </p>
-                <p style="text-align:center;">
-                  <a target="_blank" href="mailto:b00081313@aus.edu">b00081313@aus.edu</a> &nbsp;|&nbsp;
-                  <a target="_blank" href="mailto:varam@mit.edu">varam@mit.edu</a>
-                </p>
-
-                 <p style="text-align:center;">
-                  <a href="https://www.linkedin.com/in/dara-varam/">LinkedIn</a> &nbsp;|&nbsp;
-                  <a href="https://github.com/daravaram">GitHub</a> &nbsp;|&nbsp;
-                  <a href="https://www.researchgate.net/profile/Dara-Varam">ResearchGate</a> &nbsp;|&nbsp;
-                  <a href="https://scholar.google.com/citations?user=7bDpvdYAAAAJ&hl=en&authuser=2">Scholar</a>
-                </p>
-              </td>
-              <td style="padding:2.5%; width:40%; max-width:40%; vertical-align:middle;">
-                <img style="width:95%; max-width:100%; border-radius:50%;" alt="profile photo" src="images/profile-picture2.jpg">
-              </td>
-            </tr>
-          </table>
+  <div class="container">
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="profile-content">
+        <div class="profile-text">
+          <h1>Dara Varam</h1>
+          <p>
+            MS Machine Learning @ <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">AUS</a>. I did my undergrad here in Computer Engineering and Mathematics with a minor in Data Science. I'm Iranian and I'm 23 years old.
+          </p>
+          <p>
+            I'm currently a visiting student @ <a href="https://senseable.mit.edu/">MIT Senseable City Lab</a>. I also work as a research & teaching assistant with the Department of Computer Science & Engineering  @ <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">AUS</a>.
+          </p>
+          <p>
+            My research focuses mainly on model compression, optimization and quantization for neural networks and LLMs. I have also done studies in training optimization, computer vision, and eXplainable AI.
+          </p>
+          <p>
+            The picture on the right isn't what I look like now. I just wanted to put it up there so you know I've always been cool &#128122;
+          </p>
         </div>
-
-        <br>
-
-        <!-- Academic Record Section -->
-        <table style="width:100%; max-width:800px; border:0; border-spacing:0; border-collapse:separate; margin: 10px auto;">
-          <tr>
-            <td style="padding:0;">
-              <div style="background-color: rgba(231, 223, 198, 1); border-radius: 10px; padding: 10px; margin: 0 auto; width: auto;">
-                <h2 style="margin: 0 0 10px 0;">Academic Qualifications</h2>
-                <!-- Previous Qualifications -->
-                <p style="margin: 0 0 10px 0;">
-                  <strong>Previous: </strong> BSc. Computer Engineering, BSc. Mathematics &nbsp;|&nbsp;
-                  <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">American University of Sharjah</a> <br>
-                  <strong>Current: </strong> MSc. Machine Learning &nbsp;|&nbsp;
-                  <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">American University of Sharjah</a>
-                </p>
-
-                <!-- Courses Section -->
-                <table style="width:100%; border:0; border-spacing:10px; border-collapse:separate; margin: 0 auto;">
-                  <tr>
-                    <!-- Completed Courses Box -->
-                    <td style="width:50%; vertical-align:top;">
-                      <div style="background-color: rgba(215, 173, 13, 0.5); border-radius: 10px; padding: 5px;">
-                        <h3 style="margin: 0 0 5px 0;">Completed Graduate Courses</h3>
-                        <ul style="margin: 0; padding-left: 20px;">
-                          <li>MLR570 &nbsp;|&nbsp; Advanced Machine Learning</li>
-                          <li>MLR555 &nbsp;|&nbsp; Advanced Artificial Intelligence</li>
-                          <li>MLR510 &nbsp;|&nbsp; Generative Deep Learning</li>
-                          <li>MLR503 &nbsp;|&nbsp; Data Mining & Knowledge Discovery</li>
-                          <li>MLR511 &nbsp;|&nbsp; Mobile Application Development With Machine Learning</li>
-                          <li>COE69404 &nbsp;|&nbsp; Cyberphysical System Security</li>                  
-                        </ul>
-                      </div>
-                    </td>
-                    <!-- Currently Enrolled Courses Box -->
-                    <td style="width:50%; vertical-align:top;">
-                      <div style="background-color: rgba(215, 173, 13, 0.5); border-radius: 10px; padding: 5px;">
-                        <h3 style="margin: 0 0 5px 0;">Current Graduate Courses</h3>
-                        <ul style="margin: 0; padding-left: 20px;">
-                          
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-
-                <!-- Theses Section -->
-                <div style="margin-top:10px;">
-                  <h3 style="margin: 0 0 5px 0;">Machine Learning Thesis</h3>
-                  <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin-bottom:5px;">
-                      <h4 style="margin: 0 0 3px 0;">Hyperspherical Quantization: A Geometry-Aware Deep Quanization Framework (Advised by: M. I. AlHajri)</h4>
-                      <p style="margin: 0;">I work on optimizing quantization for deep neural networks using a geometry-aware approach. I mainly focus on using non-Euclidean geometric structures (hyperspherical manifolds) to encode spatial information into the quantization scheme.</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-
-        <br>
-
-        <!-- Publications Section (More Compact) -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Publications</h2>
-              <p style="margin:0;">These are papers that have already been published, as reflected on my Google Scholar page (and other venues).</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'research' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-
-        <br>
-
-        <!-- Accepted Papers Section (More Compact) -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Accepted Papers</h2>
-              <p style="margin:0;">These are papers that have been accepted for publication, but are not yet up.</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'accepted' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-
-        <br>
-
-        <!-- Submitted Papers Section (More Compact) -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Submitted Papers</h2>
-              <p style="margin:0;">These are papers that have been submitted for publication, but have not yet been released.</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'submitted' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-
-        <br>
-
-        <!-- Research Projects Section -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Research Projects</h2>
-              <p style="margin:0;">This includes other projects that I am currently working on, which have not yet been submitted or published anywhere.</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'other' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-
-        <br>
-
-        <br>
-
-        <!-- Presentations Section (More Compact) -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Presentations, Features</h2>
-              <p style="margin:0;">Includes presentations conducted online and in-person, and other miscellaneous academic things I've been featured in.</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'Presentation' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-
-        <br>
-
-        <!-- Miscellanea Section (More Compact) -->
-<table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:8px;">
-  <tbody>
-    <tr>
-      <td>
-        <h2 style="margin:0;">Miscellanea</h2>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-  <tbody>
-    <!-- Teaching Assistantships Row -->
-    <tr>
-      <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
-        <div class="colored-box" style="background-color: #9e72d4; border-radius: 12px; padding: 8px;">
-          <h2 style="margin:0;">Teaching Assistantships</h2>
+        <div class="profile-image">
+          <img src="images/profile-picture2.jpg" alt="Dara Varam">
         </div>
-      </td>
-      <td style="padding:8px; width:80%; vertical-align:middle; border-radius: 12px;">
-        - <strong>[Software]</strong> CMP120 / CMP220 / CMP305 / CMP320 – Programming I &amp; II, Data Structures &amp; Algorithms, Database Systems  
-        <br>
-        - <strong>[Hardware]</strong> COE242 / COE251 – Microcontrollers &amp; Embedded Systems, Intro. to Computer Systems  
-        <br>
-        - <strong>[Networks]</strong> COE271 – Computer Networks I  
-        <br>
-        - <strong>[Mathematics]</strong> MTH103 / MTH104 / MTH203 / MTH205 / MTH221 – Calculus I, II &amp; III, Differential Equations, Linear Algebra
-      </td>
-    </tr>
+      </div>
+      <div class="social-links">
+        <a href="mailto:b00081313@aus.edu"><i class="fas fa-envelope"></i> b00081313@aus.edu</a>
+        <a href="mailto:varam@mit.edu"><i class="fas fa-envelope"></i> varam@mit.edu</a>
+        <a href="https://www.linkedin.com/in/dara-varam/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/daravaram"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.researchgate.net/profile/Dara-Varam"><i class="fas fa-microscope"></i> ResearchGate</a>
+        <a href="https://scholar.google.com/citations?user=7bDpvdYAAAAJ&hl=en&authuser=2"><i class="fas fa-graduation-cap"></i> Scholar</a>
+      </div>
+    </section>
 
-    <!-- Awards & Honors Row -->
-    <tr>
-      <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
-        <div class="colored-box" style="background-color: #8634eb; border-radius: 12px; padding: 8px;">
-          <h2 style="margin:0;">Awards &amp; Honors</h2>
-        </div>
-      </td>
-      <td style="padding:8px; width:80%; vertical-align:middle; border-radius: 12px;">
-        - 1st place at the <a href="https://www.aus.edu/media/news/aus-inaugural-ai-city-quest-hackathon-challenges-uae-students-to-develop-smart-city-solutions-using-ai-and-blockchain">AI-City Quest</a> Hackathon.  
-        <br>
-        - 2nd place at the <a href="https://www.aus.edu/media/news/aus-student-teams-excel-in-planet-x-challenge">Planet-X</a> Mars Rover Mission challenge.  
-        <br>
-        - Member of the <a href="https://hkn.ieee.org/">IEEE-Eta Kappu Nu</a> Honors society  
-        <br>
-        - Member of the AUS Engineering Honors society
-      </td>
-    </tr>
-
-    <!-- New “Visitor Map” Row with Clustrmaps Widget -->
-    <tr>
-  <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
-    <div class="colored-box" style="background-color: rgba(255, 255, 224, 0.5); border-radius: 12px; padding: 8px;">
-      <h2 style="margin:0;">Visitor Map</h2>
-    </div>
-  </td>
-  <td style="padding:8px; width:80%; vertical-align:middle; border-radius: 12px;">
-    <script
-      type="text/javascript"
-      id="clustrmaps"
-      src="//clustrmaps.com/map_v2.js?d=jtbmukWWXKhcIy6VJ0sPL32ZngLonG3uCCTt6HnqkxI&cl=ffffff&w=160">
-    </script>
-  </td>
-</tr>
-
-  </tbody>
-</table>
-<hr style="margin: 5px 0;">
-<table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-  <tr>
-    <td style="padding:0;">
-      <p style="text-align:center; font-size:small; margin:0;">
-        Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of <a style="font-size:small;" href="https://jonbarron.info">Jon Barron's website</a>.
+    <!-- Academic Qualifications Section -->
+    <section class="academic-section">
+      <h2>Academic Qualifications</h2>
+      <p>
+        <strong>Previous:</strong> BSc. Computer Engineering, BSc. Mathematics &nbsp;|&nbsp;
+        <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">American University of Sharjah</a><br>
+        <strong>Current:</strong> MSc. Machine Learning &nbsp;|&nbsp;
+        <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">American University of Sharjah</a>
       </p>
-    </td>
-  </tr>
-</table>
+      
+      <div class="qualifications-grid">
+        <div class="course-box">
+          <h3>Completed Graduate Courses</h3>
+          <ul>
+            <li>MLR570 &nbsp;|&nbsp; Advanced Machine Learning</li>
+            <li>MLR555 &nbsp;|&nbsp; Advanced Artificial Intelligence</li>
+            <li>MLR510 &nbsp;|&nbsp; Generative Deep Learning</li>
+            <li>MLR503 &nbsp;|&nbsp; Data Mining & Knowledge Discovery</li>
+            <li>MLR511 &nbsp;|&nbsp; Mobile Application Development With Machine Learning</li>
+            <li>COE69404 &nbsp;|&nbsp; Cyberphysical System Security</li>
+          </ul>
+        </div>
+        <div class="course-box">
+          <h3>Current Graduate Courses</h3>
+          <ul>
+            <!-- Empty for now -->
+          </ul>
+        </div>
+      </div>
+      
+      <div class="thesis-section">
+        <h3>Machine Learning Thesis</h3>
+        <h4>Hyperspherical Quantization: A Geometry-Aware Deep Quantization Framework (Advised by: M. I. AlHajri)</h4>
+        <p>I work on optimizing quantization for deep neural networks using a geometry-aware approach. I mainly focus on using non-Euclidean geometric structures (hyperspherical manifolds) to encode spatial information into the quantization scheme.</p>
+      </div>
+    </section>
 
-      </td>
-    </tr>
-  </table>
-</body>
+    <!-- Publications Section -->
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Publications</h2>
+        <p>These are papers that have already been published, as reflected on my Google Scholar page (and other venues).</p>
+      </div>
+      {% for post in site.posts %}
+      {% for cat in post.categories %}
+      {% if cat == 'research' %}
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue"><em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}</p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.video %}<a href="{{ post.video }}"><i class="fas fa-video"></i> Video</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Website</a>{% endif %}
+              {% if post.youtube %}<a href="{{ post.youtube }}"><i class="fab fa-youtube"></i> YouTube</a>{% endif %}
+              {% if post.pdf %}<a href="{{ post.pdf }}"><i class="fas fa-file-pdf"></i> PDF</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </section>
 
-</html>
+    <!-- Accepted Papers Section -->
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Accepted Papers</h2>
+        <p>These are papers that have been accepted for publication, but are not yet up.</p>
+      </div>
+      {% for post in site.posts %}
+      {% for cat in post.categories %}
+      {% if cat == 'accepted' %}
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue"><em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}</p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.video %}<a href="{{ post.video }}"><i class="fas fa-video"></i> Video</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Website</a>{% endif %}
+              {% if post.youtube %}<a href="{{ post.youtube }}"><i class="fab fa-youtube"></i> YouTube</a>{% endif %}
+              {% if post.pdf %}<a href="{{ post.pdf }}"><i class="fas fa-file-pdf"></i> PDF</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </section>
+
+    <!-- Submitted Papers Section -->
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Submitted Papers</h2>
+        <p>These are papers that have been submitted for publication, but have not yet been released.</p>
+      </div>
+      {% for post in site.posts %}
+      {% for cat in post.categories %}
+      {% if cat == 'submitted' %}
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue"><em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}</p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.video %}<a href="{{ post.video }}"><i class="fas fa-video"></i> Video</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Website</a>{% endif %}
+              {% if post.youtube %}<a href="{{ post.youtube }}"><i class="fab fa-youtube"></i> YouTube</a>{% endif %}
+              {% if post.pdf %}<a href="{{ post.pdf }}"><i class="fas fa-file-pdf"></i> PDF</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </section>
+
+    <!-- Research Projects Section -->
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Research Projects</h2>
+        <p>This includes other projects that I am currently working on, which have not yet been submitted or published anywhere.</p>
+      </div>
+      {% for post in site.posts %}
+      {% for cat in post.categories %}
+      {% if cat == 'other' %}
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue"><em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}</p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.video %}<a href="{{ post.video }}"><i class="fas fa-video"></i> Video</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Website</a>{% endif %}
+              {% if post.youtube %}<a href="{{ post.youtube }}"><i class="fab fa-youtube"></i> YouTube</a>{% endif %}
+              {% if post.pdf %}<a href="{{ post.pdf }}"><i class="fas fa-file-pdf"></i> PDF</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </section>
+
+    <!-- Presentations Section -->
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Presentations, Features</h2>
+        <p>Includes presentations conducted online and in-person, and other miscellaneous academic things I've been featured in.</p>
+      </div>
+      {% for post in site.posts %}
+      {% for cat in post.categories %}
+      {% if cat == 'Presentation' %}
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue"><em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}</p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.video %}<a href="{{ post.video }}"><i class="fas fa-video"></i> Video</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Website</a>{% endif %}
+              {% if post.youtube %}<a href="{{ post.youtube }}"><i class="fab fa-youtube"></i> YouTube</a>{% endif %}
+              {% if post.pdf %}<a href="{{ post.pdf }}"><i class="fas fa-file-pdf"></i> PDF</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </section>
+
+    <!-- Miscellanea Section -->
+    <section class="misc-section">
+      <div class="section-header">
+        <h2>Miscellanea</h2>
+      </div>
+      
+      <div class="misc-card">
+        <h3>Teaching Assistantships</h3>
+        <ul>
+          <li><strong>Software:</strong> CMP120 / CMP220 / CMP305 / CMP320 – Programming I & II, Data Structures & Algorithms, Database Systems</li>
+          <li><strong>Hardware:</strong> COE242 / COE251 – Microcontrollers & Embedded Systems, Intro. to Computer Systems</li>
+          <li><strong>Networks:</strong> COE271 – Computer Networks I</li>
+          <li><strong>Mathematics:</strong> MTH103 / MTH104 / MTH203 / MTH205 / MTH221 – Calculus I, II & III, Differential Equations, Linear Algebra</li>
+        </ul>
+      </div>
+      
+      <div class="misc-card">
+        <h3>Awards & Honors</h3>
+        <ul>
+          <li>1st place at the <a href="https://www.aus.edu/media/news/aus-inaugural-ai-city-quest-hackathon-challenges-uae-students-to-develop-smart-city-solutions-using-ai-and-blockchain">AI-City Quest</a> Hackathon.</li>
+          <li>2nd place at the <a href="https://www.aus.edu/media/news/aus-student-teams-excel-in-planet-x-challenge">Planet-X</a> Mars Rover Mission challenge.</li>
+          <li>Member of the <a href="https://hkn.ieee.org/">IEEE-Eta Kappu Nu</a> Honors society</li>
+          <li>Member of the AUS Engineering Honors society</li>
+        </ul>
+      </div>
+      
+      <div class="visitor-map">
+        <h3>Visitor Map</h
