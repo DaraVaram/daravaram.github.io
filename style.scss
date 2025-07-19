@@ -133,3 +133,42 @@ $purple: #8e44ad;
   box-shadow: 0 8px 24px rgba(142, 68, 173, 0.15), 0 1.5px 4px rgba(0,0,0,0.08);
   z-index: 2;
 }
+
+// Miscellanea card style
+.misc-card {
+  background: #fafbfc;
+  border-radius: 16px;
+  padding: 24px 24px 16px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(142, 68, 173, 0.04);
+  border: none;
+}
+
+// Custom button style for top buttons
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: $purple;
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(142, 68, 173, 0.08);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.custom-btn .fa {
+  color: #fff !important;
+  font-size: 1.1em;
+}
+.custom-btn:hover, .custom-btn:focus {
+  background: darken($purple, 8%);
+  box-shadow: 0 4px 16px rgba(142, 68, 173, 0.16);
+  transform: translateY(-2px) scale(1.04);
+  text-decoration: none;
+}
