@@ -116,3 +116,20 @@ span.highlight {
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 //@import "highlights";
 //@import "svg-icons";
+
+$purple: #8e44ad;
+
+.fa, .fa-solid, .fa-brands, .fa-regular {
+  color: $purple !important;
+  transition: color 0.2s;
+}
+
+// Floating hover effect for interactive elements
+.float-hover {
+  transition: transform 0.2s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.float-hover:hover, .float-hover:focus {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(142, 68, 173, 0.15), 0 1.5px 4px rgba(0,0,0,0.08);
+  z-index: 2;
+}
