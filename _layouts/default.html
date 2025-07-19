@@ -47,15 +47,15 @@
                   The picture on the right isn't what I look like now. I just wanted to put it up there so you know I've always been cool &#128122;
                 </p>
                 <p style="text-align:center;">
-                  <a target="_blank" href="mailto:b00081313@aus.edu">b00081313@aus.edu</a> &nbsp;|&nbsp;
-                  <a target="_blank" href="mailto:varam@mit.edu">varam@mit.edu</a>
+                  <a class="float-hover" target="_blank" href="mailto:b00081313@aus.edu"><i class="fa fa-envelope"></i> b00081313@aus.edu</a> &nbsp;|&nbsp;
+                  <a class="float-hover" target="_blank" href="mailto:varam@mit.edu"><i class="fa fa-envelope"></i> varam@mit.edu</a>
                 </p>
 
                  <p style="text-align:center;">
-                  <a href="https://www.linkedin.com/in/dara-varam/">LinkedIn</a> &nbsp;|&nbsp;
-                  <a href="https://github.com/daravaram">GitHub</a> &nbsp;|&nbsp;
-                  <a href="https://www.researchgate.net/profile/Dara-Varam">ResearchGate</a> &nbsp;|&nbsp;
-                  <a href="https://scholar.google.com/citations?user=7bDpvdYAAAAJ&hl=en&authuser=2">Scholar</a>
+                  <a class="float-hover" href="https://www.linkedin.com/in/dara-varam/"><i class="fa fa-linkedin"></i> LinkedIn</a> &nbsp;|&nbsp;
+                  <a class="float-hover" href="https://github.com/daravaram"><i class="fa fa-github"></i> GitHub</a> &nbsp;|&nbsp;
+                  <a class="float-hover" href="https://www.researchgate.net/profile/Dara-Varam"><i class="fa fa-graduation-cap"></i> ResearchGate</a> &nbsp;|&nbsp;
+                  <a class="float-hover" href="https://scholar.google.com/citations?user=7bDpvdYAAAAJ&hl=en&authuser=2"><i class="fa fa-university"></i> Scholar</a>
                 </p>
               </td>
               <td style="padding:2.5%; width:40%; max-width:40%; vertical-align:middle;">
@@ -153,15 +153,15 @@
               <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
               <p style="margin:0;">{{post.authors}}<br>
               <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
+              {% if post.arxiv %}[<a class="float-hover" href="{{ post.arxiv }}"><i class="fa fa-archive"></i> arxiv</a>]{% endif %}
+              {% if post.code %}[<a class="float-hover" href="{{ post.code }}"><i class="fa fa-code"></i> code</a>]{% endif %}
+              {% if post.video %}[<a class="float-hover" href="{{ post.video }}"><i class="fa fa-video-camera"></i> Video</a>]{% endif %}
+              {% if post.paper %}[<a class="float-hover" href="{{ post.paper }}"><i class="fa fa-file-text"></i> Paper</a>]{% endif %}
+              {% if post.poster %}[<a class="float-hover" href="{{ post.poster }}"><i class="fa fa-image"></i> Poster</a>]{% endif %}
+              {% if post.slides %}[<a class="float-hover" href="{{ post.slides }}"><i class="fa fa-slideshare"></i> Slides</a>]{% endif %}
+              {% if post.website %}[<a class="float-hover" href="{{ post.website }}"><i class="fa fa-globe"></i> paper</a>]{% endif %}
+              {% if post.youtube %}[<a class="float-hover" href="{{ post.youtube }}"><i class="fa fa-youtube"></i> YouTube</a>]{% endif %}
+              {% if post.pdf %}[<a class="float-hover" href="{{ post.pdf }}"><i class="fa fa-file-pdf-o"></i> PDF</a>]{% endif %}</p>
               <p style="margin:0;">{{ post.excerpt }}</p>
             </td>
           </tr>
@@ -198,15 +198,15 @@
               <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
               <p style="margin:0;">{{post.authors}}<br>
               <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
+              {% if post.arxiv %}[<a class="float-hover" href="{{ post.arxiv }}"><i class="fa fa-archive"></i> arxiv</a>]{% endif %}
+              {% if post.code %}[<a class="float-hover" href="{{ post.code }}"><i class="fa fa-code"></i> code</a>]{% endif %}
+              {% if post.video %}[<a class="float-hover" href="{{ post.video }}"><i class="fa fa-video-camera"></i> Video</a>]{% endif %}
+              {% if post.paper %}[<a class="float-hover" href="{{ post.paper }}"><i class="fa fa-file-text"></i> Paper</a>]{% endif %}
+              {% if post.poster %}[<a class="float-hover" href="{{ post.poster }}"><i class="fa fa-image"></i> Poster</a>]{% endif %}
+              {% if post.slides %}[<a class="float-hover" href="{{ post.slides }}"><i class="fa fa-slideshare"></i> Slides</a>]{% endif %}
+              {% if post.website %}[<a class="float-hover" href="{{ post.website }}"><i class="fa fa-globe"></i> paper</a>]{% endif %}
+              {% if post.youtube %}[<a class="float-hover" href="{{ post.youtube }}"><i class="fa fa-youtube"></i> YouTube</a>]{% endif %}
+              {% if post.pdf %}[<a class="float-hover" href="{{ post.pdf }}"><i class="fa fa-file-pdf-o"></i> PDF</a>]{% endif %}</p>
               <p style="margin:0;">{{ post.excerpt }}</p>
             </td>
           </tr>
@@ -243,15 +243,15 @@
               <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
               <p style="margin:0;">{{post.authors}}<br>
               <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
+              {% if post.arxiv %}[<a class="float-hover" href="{{ post.arxiv }}"><i class="fa fa-archive"></i> arxiv</a>]{% endif %}
+              {% if post.code %}[<a class="float-hover" href="{{ post.code }}"><i class="fa fa-code"></i> code</a>]{% endif %}
+              {% if post.video %}[<a class="float-hover" href="{{ post.video }}"><i class="fa fa-video-camera"></i> Video</a>]{% endif %}
+              {% if post.paper %}[<a class="float-hover" href="{{ post.paper }}"><i class="fa fa-file-text"></i> Paper</a>]{% endif %}
+              {% if post.poster %}[<a class="float-hover" href="{{ post.poster }}"><i class="fa fa-image"></i> Poster</a>]{% endif %}
+              {% if post.slides %}[<a class="float-hover" href="{{ post.slides }}"><i class="fa fa-slideshare"></i> Slides</a>]{% endif %}
+              {% if post.website %}[<a class="float-hover" href="{{ post.website }}"><i class="fa fa-globe"></i> paper</a>]{% endif %}
+              {% if post.youtube %}[<a class="float-hover" href="{{ post.youtube }}"><i class="fa fa-youtube"></i> YouTube</a>]{% endif %}
+              {% if post.pdf %}[<a class="float-hover" href="{{ post.pdf }}"><i class="fa fa-file-pdf-o"></i> PDF</a>]{% endif %}</p>
               <p style="margin:0;">{{ post.excerpt }}</p>
             </td>
           </tr>
@@ -288,15 +288,15 @@
               <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
               <p style="margin:0;">{{post.authors}}<br>
               <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
+              {% if post.arxiv %}[<a class="float-hover" href="{{ post.arxiv }}"><i class="fa fa-archive"></i> arxiv</a>]{% endif %}
+              {% if post.code %}[<a class="float-hover" href="{{ post.code }}"><i class="fa fa-code"></i> code</a>]{% endif %}
+              {% if post.video %}[<a class="float-hover" href="{{ post.video }}"><i class="fa fa-video-camera"></i> Video</a>]{% endif %}
+              {% if post.paper %}[<a class="float-hover" href="{{ post.paper }}"><i class="fa fa-file-text"></i> Paper</a>]{% endif %}
+              {% if post.poster %}[<a class="float-hover" href="{{ post.poster }}"><i class="fa fa-image"></i> Poster</a>]{% endif %}
+              {% if post.slides %}[<a class="float-hover" href="{{ post.slides }}"><i class="fa fa-slideshare"></i> Slides</a>]{% endif %}
+              {% if post.website %}[<a class="float-hover" href="{{ post.website }}"><i class="fa fa-globe"></i> paper</a>]{% endif %}
+              {% if post.youtube %}[<a class="float-hover" href="{{ post.youtube }}"><i class="fa fa-youtube"></i> YouTube</a>]{% endif %}
+              {% if post.pdf %}[<a class="float-hover" href="{{ post.pdf }}"><i class="fa fa-file-pdf-o"></i> PDF</a>]{% endif %}</p>
               <p style="margin:0;">{{ post.excerpt }}</p>
             </td>
           </tr>
@@ -335,15 +335,15 @@
               <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
               <p style="margin:0;">{{post.authors}}<br>
               <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">paper</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
+              {% if post.arxiv %}[<a class="float-hover" href="{{ post.arxiv }}"><i class="fa fa-archive"></i> arxiv</a>]{% endif %}
+              {% if post.code %}[<a class="float-hover" href="{{ post.code }}"><i class="fa fa-code"></i> code</a>]{% endif %}
+              {% if post.video %}[<a class="float-hover" href="{{ post.video }}"><i class="fa fa-video-camera"></i> Video</a>]{% endif %}
+              {% if post.paper %}[<a class="float-hover" href="{{ post.paper }}"><i class="fa fa-file-text"></i> Paper</a>]{% endif %}
+              {% if post.poster %}[<a class="float-hover" href="{{ post.poster }}"><i class="fa fa-image"></i> Poster</a>]{% endif %}
+              {% if post.slides %}[<a class="float-hover" href="{{ post.slides }}"><i class="fa fa-slideshare"></i> Slides</a>]{% endif %}
+              {% if post.website %}[<a class="float-hover" href="{{ post.website }}"><i class="fa fa-globe"></i> paper</a>]{% endif %}
+              {% if post.youtube %}[<a class="float-hover" href="{{ post.youtube }}"><i class="fa fa-youtube"></i> YouTube</a>]{% endif %}
+              {% if post.pdf %}[<a class="float-hover" href="{{ post.pdf }}"><i class="fa fa-file-pdf-o"></i> PDF</a>]{% endif %}</p>
               <p style="margin:0;">{{ post.excerpt }}</p>
             </td>
           </tr>
