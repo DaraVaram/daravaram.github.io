@@ -59,7 +59,7 @@
                 </p>
               </td>
               <td style="padding:2.5%; width:40%; max-width:40%; vertical-align:middle;">
-                <img style="width:95%; max-width:100%; border-radius:50%;" alt="profile photo" src="images/profile-picture2.jpg">
+                <img class="float-hover" style="width:95%; max-width:100%; border-radius:50%;" alt="profile photo" src="images/profile-picture2.jpg">
               </td>
             </tr>
           </table>
@@ -71,7 +71,7 @@
         <table style="width:100%; max-width:800px; border:0; border-spacing:0; border-collapse:separate; margin: 10px auto;">
           <tr>
             <td style="padding:0;">
-              <div style="background-color: rgba(231, 223, 198, 1); border-radius: 10px; padding: 10px; margin: 0 auto; width: auto;">
+              <div class="float-hover" style="background-color: rgba(231, 223, 198, 1); border-radius: 10px; padding: 10px; margin: 0 auto; width: auto;">
                 <h2 style="margin: 0 0 10px 0;">Academic Qualifications</h2>
                 <!-- Previous Qualifications -->
                 <p style="margin: 0 0 10px 0;">
@@ -86,7 +86,7 @@
                   <tr>
                     <!-- Completed Courses Box -->
                     <td style="width:50%; vertical-align:top;">
-                      <div style="background-color: rgba(215, 173, 13, 0.5); border-radius: 10px; padding: 5px;">
+                      <div class="float-hover" style="background-color: rgba(215, 173, 13, 0.5); border-radius: 10px; padding: 5px;">
                         <h3 style="margin: 0 0 5px 0;">Completed Graduate Courses</h3>
                         <ul style="margin: 0; padding-left: 20px;">
                           <li>MLR570 &nbsp;|&nbsp; Advanced Machine Learning</li>
@@ -100,7 +100,7 @@
                     </td>
                     <!-- Currently Enrolled Courses Box -->
                     <td style="width:50%; vertical-align:top;">
-                      <div style="background-color: rgba(215, 173, 13, 0.5); border-radius: 10px; padding: 5px;">
+                      <div class="float-hover" style="background-color: rgba(215, 173, 13, 0.5); border-radius: 10px; padding: 5px;">
                         <h3 style="margin: 0 0 5px 0;">Current Graduate Courses</h3>
                         <ul style="margin: 0; padding-left: 20px;">
                           
@@ -145,7 +145,7 @@
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'research' %}
-          <tr>
+          <tr class="float-hover">
             <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
               <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
             </td>
@@ -190,7 +190,7 @@
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'accepted' %}
-          <tr>
+          <tr class="float-hover">
             <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
               <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
             </td>
@@ -235,7 +235,7 @@
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'submitted' %}
-          <tr>
+          <tr class="float-hover">
             <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
               <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
             </td>
@@ -280,7 +280,7 @@
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'other' %}
-          <tr>
+          <tr class="float-hover">
             <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
               <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
             </td>
@@ -327,7 +327,7 @@
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'Presentation' %}
-          <tr>
+          <tr class="float-hover">
             <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
               <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
             </td>
