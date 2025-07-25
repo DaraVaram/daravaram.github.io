@@ -1,0 +1,14 @@
+---
+layout: post
+title:  ""
+date:   2025-07-25 09:00:00 +00:00
+image: /images/FM-Quant.png
+categories: submitted
+author: "Dara Varam"
+authors: "<strong>D. Varam</strong>, D. A. Abuhani, I. Zualkernan, R. AlDamani, L. Khalil"
+venue: " Association for the Advancement of Artificial Intelligence (AAAI) 2026 - Main Technical Track"
+website: https://aaai.org/conference/aaai/aaai-26/
+code: 
+---
+
+We study the effects of an adapted "Optimal Transport"-based quantization on Flow Matching models, showing better preservations of generating quality and latent disentanglement at extreme low-bits (sub-4 bits). 
