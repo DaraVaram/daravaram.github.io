@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  ""
+title:  "Low-Bit, High-Fidelity: Optimal Transport Quantization for Flow Matching"
 date:   2025-07-25 09:00:00 +00:00
 image: /images/FM-Quant.png
 categories: submitted
