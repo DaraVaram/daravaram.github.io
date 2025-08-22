@@ -8,6 +8,7 @@ author: "Dara Varam"
 authors: "H. A. Abushahla, <strong>D. Varam</strong>, A. J. N. Panopio, and M. I. AlHajri"
 venue: "Proceedings of the IEEE"
 website: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5
+arxiv: https://arxiv.org/abs/2508.15008
 code:
 ---
 
