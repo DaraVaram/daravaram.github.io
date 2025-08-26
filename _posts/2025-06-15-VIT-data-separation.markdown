@@ -3,7 +3,7 @@ layout: post
 title:  "Class Separation Dynamics in Vision Transformers: An Empirical Study"
 date:   2025-06-14 09:00:00 +00:00
 image: /images/Data-Separation-Demo.png
-categories: researcj
+categories: research
 author: "Dara Varam"
 authors: "<strong>D. Varam</strong>, L. Khalil, M. Darwish, M. I. AlHajri"
 venue: "IEEE Access"
