@@ -7,7 +7,7 @@ categories: accepted
 author: "Dara Varam"
 authors: "<strong>D. Varam</strong>, A. Bayoumy, D. A. Abuhani, M. Zulkernine"
 venue: "[IEEE] International Conference on Communication, Computing, Networking, and Control in Cyber-Phyisical Systems (CCNCPS'25)"
-website: https://www.ccncps.net/
+website: https://ieeexplore.ieee.org/document/11135793
 code: 
 ---
 
