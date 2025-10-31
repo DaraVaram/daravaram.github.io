@@ -10,3 +10,5 @@ venue: "2026 IEEE International Conference on Consumer Electronics (ICCE)"
 website: https://icce.org/2026/
 code:
 ---
+
+We propose ER-NeRV (Error Resilient Neural Representations for Videos), a new training / finetuning framework that allows for models to be robust against hardware failures on consumer electronics.
