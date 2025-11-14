@@ -3,12 +3,11 @@ layout: post
 title:  "Low-Bit, High-Fidelity: Optimal Transport Quantization for Flow Matching"
 date:   2025-07-25 09:00:00 +00:00
 image: /images/FM-Quant-Demo.png
-categories: submitted
+categories: other
 author: "Dara Varam"
-authors: "Anonymous Submission"
-venue: " Association for the Advancement of Artificial Intelligence (AAAI) 2026 - Main Technical Track"
-website: https://aaai.org/conference/aaai/aaai-26/
-code: 
+authors: "<strong>D. Varam</strong>, D. A. Abuhani, I. Zualkernan, R. AlDamani, and L. Khalil"
+arxiv: https://arxiv.org
+code: https://github.com/Quantized-FM/LowBit-HighFid
 ---
 
 We study the effects of an adapted "Optimal Transport"-based quantization on Flow Matching models, showing better preservations of generating quality and latent disentanglement at extreme low-bits (sub-4 bits). 
