@@ -8,6 +8,7 @@ author: "Dara Varam"
 authors: "<strong>D. Varam</strong>, D. A. Abuhani, I. Zualkernan, R. AlDamani, and L. Khalil"
 arxiv: https://arxiv.org
 code: https://github.com/Quantized-FM/LowBit-HighFid
+venue: arXiv
 ---
 
 We study the effects of an adapted "Optimal Transport"-based quantization on Flow Matching models, showing better preservations of generating quality and latent disentanglement at extreme low-bits (sub-4 bits). 
