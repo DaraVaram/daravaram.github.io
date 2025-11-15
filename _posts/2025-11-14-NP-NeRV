@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "LP-NeRV: Scalable Neural Representations for Videos through Layered Precision"
+date:   2025-11-14 09:00:00 +00:00
+image: /images/LP-NeRV.png
+categories: "submitted"
+author: "Dara Varam"
+authors: "Anonymous Submission"
+venue: "2026 Conference on Computer Vision and Pattern and Pattern Recognition (CVPR)"
+website: https://cvpr.thecvf.com/
+code:
+---
+
+We propose LP-NeRV (Layered Precision Neural Representations for Videos), a post-training approach to enable scalable deployment of videos at varying quality levels.
