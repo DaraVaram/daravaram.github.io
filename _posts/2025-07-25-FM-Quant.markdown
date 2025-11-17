@@ -6,7 +6,7 @@ image: /images/FM-Quant-Demo.png
 categories: other
 author: "Dara Varam"
 authors: "<strong>D. Varam</strong>, D. A. Abuhani, I. Zualkernan, R. AlDamani, and L. Khalil"
-arxiv: https://arxiv.org
+arxiv: https://arxiv.org/abs/2508.15008
 code: https://github.com/Quantized-FM/LowBit-HighFid
 venue: arXiv
 ---
