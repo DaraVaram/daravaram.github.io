@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Towards Deployable Neural Representations for Videos Using Quantization-Aware Training"
+date:   2026-02-04 09:00:00 +00:00
+image: /images/QAT_NeRV-website.jpg
+categories: "submitted"
+author: "Dara Varam"
+authors: "Anonymous Submission"
+venue: "2026 IEEE International Conference on Image Processing (ICIP)"
+website: https://2026.ieeeicip.org/
+code:
+---
+
+We propose QAT-NeRV, a quantization-aware training framework for neural video representations that integrates quantization effects directly into the training process.
