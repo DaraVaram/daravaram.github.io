@@ -6,7 +6,7 @@ image: /images/LP-NeRV.png
 categories: "submitted"
 author: "Dara Varam"
 authors: "Anonymous Submission"
-venue: "The 18th European Conference on Computer Vision -- ECCV 2026"
+venue: "The 18th European Conference on Computer Vision - ECCV"
 website: https://eccv.ecva.net/
 code:
 ---
