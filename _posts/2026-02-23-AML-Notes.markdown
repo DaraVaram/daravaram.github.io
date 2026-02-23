@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Machine Learning: A Soft Introduction"
+date:   2025-07-25 09:00:00 +00:00
+image: /images/AttentionCalculation.png
+categories: other
+author: "Dara Varam"
+authors: "<strong>D. Varam</strong>,M. I. AlHajri"
+arxiv: 
+code: 
+venue: Unpublished
+---
+
+I'm in the process of writing a book on Machine Learning, to be hosted on GitHub. Compiled as part of my role as the sole TA for the <strong>Advanced Machine Learning (MLR570)</strong> graduate course offered at the American University of Sharjah.
