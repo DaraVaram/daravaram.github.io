@@ -6,7 +6,7 @@ image: /images/qatnerv.png
 categories: "submitted"
 author: "Dara Varam"
 authors: "Anonymous Submission"
-venue: "2026 IEEE International Conference on Image Processing (ICIP)"
+venue: "IEEE International Conference on Image Processing (ICIP)"
 website: https://2026.ieeeicip.org/
 code:
 ---
