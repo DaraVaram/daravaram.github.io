@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "LP-NeRV: Scalable Neural Representations for Videos through Layered Precision"
+title:  "LP-NeRV: Layered-Precision Scalability for Neural Video Representations"
 date:   2025-11-14 09:00:00 +00:00
 image: /images/LP-NeRV.png
 categories: "submitted"
