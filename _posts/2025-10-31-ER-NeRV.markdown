@@ -3,11 +3,11 @@ layout: post
 title:  "ER-NeRV: Training Error-Resilient Neural Representations for Videos"
 date:   2025-10-31 09:00:00 +00:00
 image: /images/ER-NeRV.png
-categories: "accepted"
+categories: "research"
 author: "Dara Varam"
 authors: "A. J. N. Panopio, <strong>D. Varam</strong>, I. Amer , and M. Hafeeda"
 venue: "2026 IEEE International Conference on Consumer Electronics (ICCE)"
-website: https://icce.org/2026/
+website: https://ieeexplore.ieee.org/document/11449820
 code:
 ---
 
