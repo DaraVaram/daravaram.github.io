@@ -2,7 +2,7 @@
 layout: post
 title:  "Content Matters: Characterizing Reconstruction Behavior in Neural Video Representations"
 date:   2026-04-02 09:00:00 +00:00
-image: /images/ContentMattersNeRV.png
+image: /images/ContentMattersNeRV.PNG
 categories: "submitted"
 author: "Dara Varam"
 authors: "Anonymous Submission"
