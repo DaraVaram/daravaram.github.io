@@ -2,7 +2,7 @@
 layout: post
 title:  "Not All Objectives Are Born Equal: Priority-Constrained Descent for Hierarchical Multi-Objective Optimization"
 date:   2026-06-30 09:00:00 +00:00
-image: /images/PCD.PNG
+image: /images/PCD.png
 categories: "other"
 author: "Dara Varam"
 authors: "<strong>D. Varam</strong>, M. I. AlHajri"
