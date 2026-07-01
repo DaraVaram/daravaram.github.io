@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Neural Network Quantization for Microcontrollers: A Comprehensive Review of Methods, Platforms, and Applications"
+title:  "Neural Network Quantization for Microcontrollers: A Comprehensive Survey of Methods, Platforms, and Applications"
 date:   2025-08-17 09:00:00 +00:00
 image: /images/Quant-Review.png
 categories: "submitted"
