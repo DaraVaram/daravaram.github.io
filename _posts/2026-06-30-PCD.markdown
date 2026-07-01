@@ -7,7 +7,7 @@ categories: "other"
 author: "Dara Varam"
 authors: "<strong>D. Varam</strong>, M. I. AlHajri"
 venue: "arXiv pre-print"
-website: daravaram.github.io/PCD
+website: https://daravaram.github.io/PCD/
 code:
 arxiv: https://arxiv.org/abs/2606.29521
 ---
