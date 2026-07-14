@@ -1,175 +1,531 @@
 ---
 ---
 
-//
-// IMPORTS
-//
+/* ==========================================================================
+   Dara Varam — academic site
+   Dark theme built around the PCD purple (#6a1b9a)
+   ========================================================================== */
 
-//@import "reset";
-//@import "variables";
-// Syntax highlighting @import is at the bottom of this file
-
-/**************/
-/* BASE RULES */
-/**************/
-a {
-  color: #1772d0;
-  text-decoration: none;
+:root {
+  --pcd:         #6a1b9a;                      /* the PCD purple            */
+  --pcd-soft:    rgba(106, 27, 154, 0.16);     /* washes & fills            */
+  --pcd-bright:  #9d4edd;                      /* icons, rules, highlights  */
+  --link:        #c77dff;                      /* links on dark             */
+  --link-hover:  #e0aaff;
+  --bg:          #0e0b13;                      /* page background           */
+  --surface:     #171221;                      /* cards                     */
+  --surface-2:   #1f1830;                      /* nested cards, chips       */
+  --border:      rgba(157, 78, 221, 0.22);
+  --border-soft: rgba(157, 78, 221, 0.12);
+  --text:        #e9e3f2;
+  --muted:       #a79bbd;
+  --shadow:      0 10px 30px rgba(0, 0, 0, 0.45);
+  --glow:        0 6px 24px rgba(106, 27, 154, 0.28);
 }
 
-a:focus,
-a:hover {
-  color: #f09228;
-  text-decoration: none;
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  /* faint purple aurora at the top of the page */
+  background-image: radial-gradient(ellipse 70% 42% at 50% -8%, rgba(106, 27, 154, 0.22), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--text);
+}
+
+::selection {
+  background: rgba(106, 27, 154, 0.6);
+  color: #fff;
+}
+
+/**************/
+/* TYPOGRAPHY */
+/**************/
 
 body,
 td,
 th,
 tr,
 p,
+li,
 a {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.65;
   font-display: auto;
 }
 
 strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  font-display: auto;
+  font-weight: 700;
+  color: var(--text);
+}
+
+h1 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  margin: 0 0 14px 0;
 }
 
 h2 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
-  font-display: auto;
-  font-weight: normal;
-  padding: 0px;
-  margin: 0px;
-  display:inline; 
+  font-family: 'Lora', Georgia, serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+/* small purple rule under section titles */
+h2.ruled {
+  display: block;
+  padding-bottom: 10px;
+  position: relative;
+}
+h2.ruled::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 46px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--pcd-bright), rgba(157, 78, 221, 0.15));
 }
 
 h3 {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  font-display: auto;
-  padding: 0px;
-  margin: 0px;
-  display:inline; 
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 32px;
-  font-weight: normal;
-  font-display: auto;
-  text-align: center;
-  padding: 0px;
-  margin-block-start: 14px;
-  margin-block-end: 14px;
-  margin-left: 0px;
-  margin-right: 0px;
+h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
 
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--pcd-bright);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--border-soft);
 }
 
-.one {
-  width: 160px;
-  height: 160px;
-  position: relative;
+.fa {
+  color: var(--pcd-bright);
+  transition: color 0.15s ease;
 }
 
-.two {
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+/**********/
+/* LAYOUT */
+/**********/
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 44px 22px 28px 22px;
 }
 
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+.section {
+  margin-top: 52px;
 }
 
-span.highlight {
-  background-color: #ffffd0;
+.section-desc {
+  color: var(--muted);
+  margin: 10px 0 0 0;
 }
 
-.colored-box {
-    color: black;
-    padding: 20px;
-    display: inline-block;
-    border-radius: 10px;
+/* gentle floating hover, shared by cards & chips */
+.lift {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
 }
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-//@import "highlights";
-//@import "svg-icons";
-
-$purple: #8e44ad;
-
-.fa, .fa-solid, .fa-brands, .fa-regular {
-  color: $purple !important;
-  transition: color 0.2s;
+.lift:hover,
+.lift:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
 }
 
-// Floating hover effect for interactive elements
-.float-hover {
-  transition: transform 0.2s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-.float-hover:hover, .float-hover:focus {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(142, 68, 173, 0.15), 0 1.5px 4px rgba(0,0,0,0.08);
-  z-index: 2;
+/********/
+/* HERO */
+/********/
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 34px 36px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(155deg, rgba(106, 27, 154, 0.26), rgba(106, 27, 154, 0.05) 55%),
+    var(--surface);
+  box-shadow: var(--shadow);
 }
 
-// Miscellanea card style
-.misc-card {
-  background: rgba(142, 68, 173, 0.10); // purple hue
-  border-radius: 16px;
-  padding: 24px 24px 16px 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(142, 68, 173, 0.10);
-  border: 1px solid rgba(142, 68, 173, 0.18);
-  color: #2d1457;
+.hero-text {
+  flex: 1 1 60%;
 }
 
-// Custom button style for top buttons
-.custom-btn {
+.hero-text p {
+  margin: 0 0 12px 0;
+}
+
+.hero-photo {
+  flex: 0 0 34%;
+  text-align: center;
+}
+
+.hero-photo img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 50%;
+  border: 3px solid rgba(157, 78, 221, 0.55);
+  box-shadow: 0 0 0 6px rgba(106, 27, 154, 0.15), var(--shadow);
+}
+
+/* contact + social pills */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
-  background: $purple;
-  color: #fff !important;
-  border: none;
-  border-radius: 8px;
-  padding: 0.5em 1.2em;
-  font-size: 1em;
-  font-family: inherit;
+  gap: 7px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(14, 11, 19, 0.35);
+  color: var(--link);
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+
+.chip:hover,
+.chip:focus {
+  background: var(--pcd);
+  border-color: var(--pcd-bright);
+  color: #fff;
+  text-decoration: none;
+}
+
+.chip:hover .fa,
+.chip:focus .fa {
+  color: #fff;
+}
+
+/*********/
+/* CARDS */
+/*********/
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow);
+}
+
+.card + .card {
+  margin-top: 18px;
+}
+
+.card > h2,
+.card > h3 {
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 18px;
   font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(142, 68, 173, 0.08);
-  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  color: var(--pcd-bright);
+}
+
+.subcard {
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--pcd-bright);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 14px;
+}
+
+.subcard h3 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--pcd-bright);
+}
+
+.card ul {
+  margin: 8px 0 0 0;
+  padding-left: 22px;
+}
+
+.card li {
+  margin-bottom: 4px;
+}
+
+.card li::marker {
+  color: var(--pcd-bright);
+}
+
+.course-code {
+  font-weight: 700;
+  color: var(--pcd-bright);
+  letter-spacing: 0.3px;
+}
+
+/****************/
+/* PUBLICATIONS */
+/****************/
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  background: var(--surface);
+}
+
+.pub:hover {
+  border-color: var(--border);
+}
+
+.pub-thumb {
+  align-self: center;
+  background: #fff;               /* white frame so light figures sit well on dark */
+  border-radius: 9px;
+  padding: 6px;
+}
+
+.pub-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.pub-body p {
+  margin: 0 0 6px 0;
+}
+
+.pub-title {
+  margin-bottom: 6px;
+}
+
+.pub-authors {
+  color: var(--muted);
+}
+
+.pub-authors strong {
+  color: var(--text);
+}
+
+.pub-venue {
+  color: var(--muted);
+}
+
+.pub-venue em {
+  color: var(--link);
+  font-style: italic;
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 4px 0 8px 0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  padding: 2px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(106, 27, 154, 0.10);
+  color: var(--link);
+  white-space: nowrap;
+}
+
+.tag:hover,
+.tag:focus {
+  background: var(--pcd);
+  border-color: var(--pcd-bright);
+  color: #fff;
   text-decoration: none;
 }
-.custom-btn .fa {
-  color: #fff !important;
-  font-size: 1.1em;
+
+.tag:hover .fa,
+.tag:focus .fa {
+  color: #fff;
 }
-.custom-btn:hover, .custom-btn:focus {
-  background: darken($purple, 8%);
-  box-shadow: 0 4px 16px rgba(142, 68, 173, 0.16);
-  transform: translateY(-2px) scale(1.04);
-  text-decoration: none;
+
+.pub-excerpt,
+.pub-excerpt p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+/**************/
+/* MISC CARDS */
+/**************/
+
+.misc-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin-top: 16px;
+  box-shadow: var(--shadow);
+}
+
+.misc-card h3 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--pcd-bright);
+  margin-bottom: 8px;
+}
+
+.misc-card ul {
+  margin: 8px 0 0 0;
+  padding-left: 22px;
+}
+
+.misc-card li {
+  margin-bottom: 5px;
+}
+
+.misc-card li::marker {
+  color: var(--pcd-bright);
+}
+
+/* visitor map */
+.map-card {
+  text-align: center;
+}
+
+.map-wrapper {
+  max-width: 300px;
+  margin: 10px auto 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/**********/
+/* FOOTER */
+/**********/
+
+.site-footer {
+  margin-top: 56px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-soft);
+  text-align: center;
+}
+
+.site-footer p {
+  color: var(--muted);
+  font-size: 12.5px;
+  margin: 0;
+}
+
+/**************/
+/* RESPONSIVE */
+/**************/
+
+@media (max-width: 720px) {
+  .page {
+    padding: 26px 14px 22px 14px;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    gap: 20px;
+    padding: 26px 22px;
+    text-align: left;
+  }
+
+  .hero-photo img {
+    max-width: 180px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .chip-row {
+    justify-content: center;
+  }
+
+  .pub {
+    grid-template-columns: 1fr;
+  }
+
+  .pub-thumb {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
+/* legacy helpers kept for inner pages / old markup */
+span.highlight {
+  background-color: rgba(157, 78, 221, 0.25);
+}
+
+.float-hover {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.float-hover:hover,
+.float-hover:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
 }

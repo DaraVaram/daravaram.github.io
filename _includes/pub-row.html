@@ -1,0 +1,22 @@
+<article class="pub lift">
+  <div class="pub-thumb">
+    <img src="{{ include.post.image }}" alt="project image">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title">{{ include.post.title }}</h3>
+    <p class="pub-authors">{{ include.post.authors }}</p>
+    <p class="pub-venue"><em>{{ include.post.venue }}</em>, {{ include.post.date | date: "%Y" }}</p>
+    <p class="pub-links">
+      {% if include.post.arxiv %}<a class="tag" href="{{ include.post.arxiv }}"><i class="fa fa-archive"></i> arXiv</a>{% endif %}
+      {% if include.post.code %}<a class="tag" href="{{ include.post.code }}"><i class="fa fa-code"></i> code</a>{% endif %}
+      {% if include.post.video %}<a class="tag" href="{{ include.post.video }}"><i class="fa fa-video-camera"></i> video</a>{% endif %}
+      {% if include.post.paper %}<a class="tag" href="{{ include.post.paper }}"><i class="fa fa-file-text"></i> paper</a>{% endif %}
+      {% if include.post.poster %}<a class="tag" href="{{ include.post.poster }}"><i class="fa fa-image"></i> poster</a>{% endif %}
+      {% if include.post.slides %}<a class="tag" href="{{ include.post.slides }}"><i class="fa fa-slideshare"></i> slides</a>{% endif %}
+      {% if include.post.website %}<a class="tag" href="{{ include.post.website }}"><i class="fa fa-globe"></i> website</a>{% endif %}
+      {% if include.post.youtube %}<a class="tag" href="{{ include.post.youtube }}"><i class="fa fa-youtube"></i> YouTube</a>{% endif %}
+      {% if include.post.pdf %}<a class="tag" href="{{ include.post.pdf }}"><i class="fa fa-file-pdf-o"></i> PDF</a>{% endif %}
+    </p>
+    <div class="pub-excerpt">{{ include.post.excerpt }}</div>
+  </div>
+</article>
