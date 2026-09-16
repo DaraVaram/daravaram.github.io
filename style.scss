@@ -60,52 +60,80 @@ body {
   will-change: transform;
 }
 
+/* Blobs hug the left/right gutters beside the 980px content column.
+   Elliptical gradients + rotation give a liquid tumble; each path is a
+   closed loop (0% = 100%) so they wander continuously instead of
+   ping-ponging, and negative delays de-synchronize them. */
+
 .blob-1 {
-  width: 58vmax;
-  height: 58vmax;
-  top: -20vmax;
-  left: -14vmax;
-  background: radial-gradient(circle at center, rgba(106, 27, 154, 0.45), transparent 62%);
-  animation: drift-1 38s ease-in-out infinite alternate;
+  width: 62vmax;
+  height: 62vmax;
+  top: -12vmax;
+  left: -22vmax;
+  background: radial-gradient(ellipse 42% 30% at center, rgba(138, 43, 226, 0.75), rgba(106, 27, 154, 0.35) 55%, transparent 78%);
+  animation: drift-1 26s ease-in-out infinite;
 }
 
 .blob-2 {
-  width: 48vmax;
-  height: 48vmax;
-  bottom: -18vmax;
-  right: -12vmax;
-  background: radial-gradient(circle at center, rgba(157, 78, 221, 0.30), transparent 62%);
-  animation: drift-2 47s ease-in-out infinite alternate;
+  width: 56vmax;
+  height: 56vmax;
+  top: 18%;
+  right: -20vmax;
+  background: radial-gradient(ellipse 40% 29% at center, rgba(157, 78, 221, 0.7), rgba(124, 44, 191, 0.3) 56%, transparent 78%);
+  animation: drift-2 32s ease-in-out infinite;
+  animation-delay: -11s;
 }
 
 .blob-3 {
-  width: 40vmax;
-  height: 40vmax;
-  top: 34%;
-  left: 52%;
-  background: radial-gradient(circle at center, rgba(69, 39, 160, 0.32), transparent 64%);
-  animation: drift-3 55s ease-in-out infinite alternate;
+  width: 54vmax;
+  height: 54vmax;
+  bottom: -12vmax;
+  left: -18vmax;
+  background: radial-gradient(ellipse 41% 30% at center, rgba(94, 53, 177, 0.72), rgba(69, 39, 160, 0.32) 56%, transparent 78%);
+  animation: drift-3 29s ease-in-out infinite;
+  animation-delay: -7s;
+}
+
+.blob-4 {
+  width: 48vmax;
+  height: 48vmax;
+  bottom: 14%;
+  right: -16vmax;
+  background: radial-gradient(ellipse 42% 31% at center, rgba(171, 71, 188, 0.62), rgba(106, 27, 154, 0.28) 56%, transparent 78%);
+  animation: drift-4 23s ease-in-out infinite;
+  animation-delay: -16s;
 }
 
 @keyframes drift-1 {
-  0%   { transform: translate(0, 0) scale(1); }
-  33%  { transform: translate(9vw, 8vh) scale(1.18); }
-  66%  { transform: translate(3vw, 16vh) scale(0.92); }
-  100% { transform: translate(13vw, 4vh) scale(1.08); }
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25%  { transform: translate(7vw, 18vh) rotate(40deg) scale(1.08); }
+  50%  { transform: translate(2vw, 38vh) rotate(85deg) scale(0.96); }
+  75%  { transform: translate(-3vw, 16vh) rotate(50deg) scale(1.05); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
 }
 
 @keyframes drift-2 {
-  0%   { transform: translate(0, 0) scale(1); }
-  33%  { transform: translate(-8vw, -10vh) scale(0.9); }
-  66%  { transform: translate(-14vw, -3vh) scale(1.15); }
-  100% { transform: translate(-4vw, -14vh) scale(1.05); }
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25%  { transform: translate(-6vw, 20vh) rotate(-55deg) scale(1.07); }
+  50%  { transform: translate(-9vw, -6vh) rotate(-110deg) scale(0.95); }
+  75%  { transform: translate(-2vw, -22vh) rotate(-45deg) scale(1.06); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
 }
 
 @keyframes drift-3 {
-  0%   { transform: translate(0, 0) scale(1); }
-  33%  { transform: translate(-10vw, 7vh) scale(1.12); }
-  66%  { transform: translate(6vw, -8vh) scale(0.88); }
-  100% { transform: translate(-3vw, -12vh) scale(1.1); }
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25%  { transform: translate(8vw, -16vh) rotate(60deg) scale(1.06); }
+  50%  { transform: translate(3vw, -34vh) rotate(120deg) scale(0.94); }
+  75%  { transform: translate(-2vw, -12vh) rotate(45deg) scale(1.07); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+
+@keyframes drift-4 {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25%  { transform: translate(-7vw, -18vh) rotate(50deg) scale(1.08); }
+  50%  { transform: translate(-4vw, 10vh) rotate(105deg) scale(0.95); }
+  75%  { transform: translate(2vw, 20vh) rotate(40deg) scale(1.04); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
 }
 
 /* static film grain over the glow, like a pre-rendered gradient video */
