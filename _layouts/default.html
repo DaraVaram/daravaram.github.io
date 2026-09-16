@@ -25,7 +25,31 @@
 </head>
 
 <body>
+  <!-- Animated liquid backdrop (pure CSS, sits behind everything) -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
   <div class="page">
+
+    {% assign research_posts = site.posts | where_exp: "p", "p.categories contains 'research'" %}
+    {% assign accepted_posts = site.posts | where_exp: "p", "p.categories contains 'accepted'" %}
+    {% assign submitted_posts = site.posts | where_exp: "p", "p.categories contains 'submitted'" %}
+    {% assign project_posts = site.posts | where_exp: "p", "p.categories contains 'other'" %}
+    {% assign talk_posts = site.posts | where_exp: "p", "p.categories contains 'Presentation'" %}
+
+    <!-- Sticky section navigation (links only to non-empty sections) -->
+    <nav class="site-nav">
+      <a href="#academics">Academics</a>
+      {% if research_posts.size > 0 %}<a href="#publications">Publications</a>{% endif %}
+      {% if accepted_posts.size > 0 %}<a href="#accepted">Accepted</a>{% endif %}
+      {% if submitted_posts.size > 0 %}<a href="#submitted">Submitted</a>{% endif %}
+      {% if project_posts.size > 0 %}<a href="#projects">Projects</a>{% endif %}
+      {% if talk_posts.size > 0 %}<a href="#talks">Talks</a>{% endif %}
+      <a href="#misc">Misc</a>
+    </nav>
 
     <!-- Profile Introduction Section -->
     <header class="hero lift">
@@ -60,7 +84,7 @@
     </header>
 
     <!-- Academic Record Section -->
-    <section class="section">
+    <section class="section" id="academics">
       <div class="card lift">
         <h2 class="ruled">Academic Qualifications</h2>
         <p style="margin: 12px 0 0 0;">
@@ -73,7 +97,7 @@
         <!-- Completed Courses -->
         <div class="subcard">
           <h3>Completed Graduate Courses</h3>
-          <ul>
+          <ul class="cols-2">
             <li><span class="course-code">MLR570</span> &nbsp;|&nbsp; Advanced Machine Learning</li>
             <li><span class="course-code">MLR555</span> &nbsp;|&nbsp; Advanced Artificial Intelligence</li>
             <li><span class="course-code">MLR510</span> &nbsp;|&nbsp; Generative Deep Learning</li>
@@ -94,88 +118,78 @@
     </section>
 
     <!-- Publications Section -->
-    <section class="section">
+    {% if research_posts.size > 0 %}
+    <section class="section" id="publications">
       <h2 class="ruled">Publications</h2>
       <p class="section-desc">These are papers that have already been published, as reflected on my Google Scholar page (and other venues).</p>
       <div class="pub-list">
-        {% for post in site.posts %}
-        {% for cat in post.categories %}
-        {% if cat == 'research' %}
+        {% for post in research_posts %}
         {% include pub-row.html post=post %}
-        {% endif %}
-        {% endfor %}
         {% endfor %}
       </div>
     </section>
+    {% endif %}
 
     <!-- Accepted Papers Section -->
-    <section class="section">
+    {% if accepted_posts.size > 0 %}
+    <section class="section" id="accepted">
       <h2 class="ruled">Accepted Papers</h2>
       <p class="section-desc">These are papers that have been accepted for publication, but are not yet up.</p>
       <div class="pub-list">
-        {% for post in site.posts %}
-        {% for cat in post.categories %}
-        {% if cat == 'accepted' %}
+        {% for post in accepted_posts %}
         {% include pub-row.html post=post %}
-        {% endif %}
-        {% endfor %}
         {% endfor %}
       </div>
     </section>
+    {% endif %}
 
     <!-- Submitted Papers Section -->
-    <section class="section">
+    {% if submitted_posts.size > 0 %}
+    <section class="section" id="submitted">
       <h2 class="ruled">Submitted Papers</h2>
       <p class="section-desc">These are papers that have been submitted for publication, but have not yet been released.</p>
       <div class="pub-list">
-        {% for post in site.posts %}
-        {% for cat in post.categories %}
-        {% if cat == 'submitted' %}
+        {% for post in submitted_posts %}
         {% include pub-row.html post=post %}
-        {% endif %}
-        {% endfor %}
         {% endfor %}
       </div>
     </section>
+    {% endif %}
 
     <!-- Research Projects Section -->
-    <section class="section">
+    {% if project_posts.size > 0 %}
+    <section class="section" id="projects">
       <h2 class="ruled">Research Projects / arXiv</h2>
       <p class="section-desc">This includes other projects that I am currently working on, including arXiv submissions.</p>
       <div class="pub-list">
-        {% for post in site.posts %}
-        {% for cat in post.categories %}
-        {% if cat == 'other' %}
+        {% for post in project_posts %}
         {% include pub-row.html post=post %}
-        {% endif %}
-        {% endfor %}
         {% endfor %}
       </div>
     </section>
+    {% endif %}
 
     <!-- Presentations Section -->
-    <section class="section">
+    {% if talk_posts.size > 0 %}
+    <section class="section" id="talks">
       <h2 class="ruled">Presentations, Features</h2>
       <p class="section-desc">Includes presentations conducted online and in-person, and other miscellaneous academic things I've been featured in.</p>
       <div class="pub-list">
-        {% for post in site.posts %}
-        {% for cat in post.categories %}
-        {% if cat == 'Presentation' %}
+        {% for post in talk_posts %}
         {% include pub-row.html post=post %}
-        {% endif %}
-        {% endfor %}
         {% endfor %}
       </div>
     </section>
+    {% endif %}
 
     <!-- Miscellanea Section -->
-    <section class="section">
+    <section class="section" id="misc">
       <h2 class="ruled">Miscellanea</h2>
 
       <!-- Peer Reviewed Articles -->
       <div class="misc-card lift">
         <h3>Peer Reviewed Articles</h3>
-        <ul>
+        <ul class="cols-2">
           <li>
             <a href="https://www.nature.com/srep/" target="_blank">Nature – Scientific Reports</a>
           </li>
@@ -209,7 +223,8 @@
         </ul>
       </div>
 
-      <!-- Teaching Assistantships -->
+      <!-- Teaching Assistantships & Awards side by side -->
+      <div class="misc-grid">
       <div class="misc-card lift">
         <h3>Teaching Assistantships</h3>
         <ul>
@@ -234,11 +249,13 @@
           <li>Member of the AUS Engineering Honors Society.</li>
         </ul>
       </div>
+      </div>
 
       <!-- Visitor Map (tracking only, hidden from view) -->
       <div style="display:none;" aria-hidden="true">
         <script type="text/javascript" id="mapmyvisitors" src="https://visitormap.visitormap.workers.dev/map.js?d=o6l6EZCz5lXS2YdJBSeQyQvw&cl=171221&co=0e0b13&ct=a79bbd&w=a"></script>
       </div>
+    </section>
 
     <footer class="site-footer">
       <p>
