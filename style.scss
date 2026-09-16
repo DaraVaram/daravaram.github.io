@@ -56,8 +56,10 @@ body {
 
 .blob {
   position: absolute;
-  border-radius: 50%;
-  will-change: transform;
+  will-change: transform, border-radius;
+  /* light edge softening only — the shape itself stays defined */
+  filter: blur(14px);
+  opacity: 0.55;
 }
 
 /* Blobs hug the left/right gutters beside the 980px content column.
@@ -66,42 +68,61 @@ body {
    ping-ponging, and negative delays de-synchronize them. */
 
 .blob-1 {
-  width: 62vmax;
-  height: 62vmax;
-  top: -12vmax;
-  left: -22vmax;
-  background: radial-gradient(ellipse 42% 30% at center, rgba(138, 43, 226, 0.75), rgba(106, 27, 154, 0.35) 55%, transparent 78%);
-  animation: drift-1 26s ease-in-out infinite;
+  width: 30vmax;
+  height: 27vmax;
+  top: 4%;
+  left: -9vmax;
+  background: linear-gradient(135deg, #9d4edd, #6a1b9a 55%, #4527a0);
+  border-radius: 58% 42% 63% 37% / 45% 58% 42% 55%;
+  animation: drift-1 26s ease-in-out infinite, morph-a 11s ease-in-out infinite alternate;
 }
 
 .blob-2 {
-  width: 56vmax;
-  height: 56vmax;
-  top: 18%;
-  right: -20vmax;
-  background: radial-gradient(ellipse 40% 29% at center, rgba(157, 78, 221, 0.7), rgba(124, 44, 191, 0.3) 56%, transparent 78%);
-  animation: drift-2 32s ease-in-out infinite;
-  animation-delay: -11s;
+  width: 27vmax;
+  height: 25vmax;
+  top: 20%;
+  right: -8vmax;
+  background: linear-gradient(215deg, #c77dff, #7b2cbf 60%, #6a1b9a);
+  border-radius: 40% 60% 45% 55% / 60% 40% 62% 38%;
+  animation: drift-2 32s ease-in-out infinite, morph-b 13s ease-in-out infinite alternate;
+  animation-delay: -11s, -5s;
 }
 
 .blob-3 {
-  width: 54vmax;
-  height: 54vmax;
-  bottom: -12vmax;
-  left: -18vmax;
-  background: radial-gradient(ellipse 41% 30% at center, rgba(94, 53, 177, 0.72), rgba(69, 39, 160, 0.32) 56%, transparent 78%);
-  animation: drift-3 29s ease-in-out infinite;
-  animation-delay: -7s;
+  width: 28vmax;
+  height: 26vmax;
+  bottom: 6%;
+  left: -8vmax;
+  background: linear-gradient(160deg, #7c4dff, #5e35b1 55%, #4527a0);
+  border-radius: 65% 35% 50% 50% / 38% 65% 35% 62%;
+  animation: drift-3 29s ease-in-out infinite, morph-b 10s ease-in-out infinite alternate;
+  animation-delay: -7s, -3s;
 }
 
 .blob-4 {
-  width: 48vmax;
-  height: 48vmax;
-  bottom: 14%;
-  right: -16vmax;
-  background: radial-gradient(ellipse 42% 31% at center, rgba(171, 71, 188, 0.62), rgba(106, 27, 154, 0.28) 56%, transparent 78%);
-  animation: drift-4 23s ease-in-out infinite;
-  animation-delay: -16s;
+  width: 24vmax;
+  height: 22vmax;
+  bottom: 22%;
+  right: -7vmax;
+  background: linear-gradient(300deg, #ab47bc, #8e24aa 55%, #6a1b9a);
+  border-radius: 45% 55% 62% 38% / 55% 45% 58% 42%;
+  animation: drift-4 23s ease-in-out infinite, morph-a 12s ease-in-out infinite alternate;
+  animation-delay: -16s, -8s;
+}
+
+/* organic outline wobble — two shared shape cycles, offset per blob */
+@keyframes morph-a {
+  0%   { border-radius: 58% 42% 63% 37% / 45% 58% 42% 55%; }
+  33%  { border-radius: 38% 62% 44% 56% / 62% 38% 64% 36%; }
+  66%  { border-radius: 64% 36% 52% 48% / 36% 64% 38% 62%; }
+  100% { border-radius: 44% 56% 60% 40% / 56% 44% 58% 42%; }
+}
+
+@keyframes morph-b {
+  0%   { border-radius: 40% 60% 45% 55% / 60% 40% 62% 38%; }
+  33%  { border-radius: 62% 38% 58% 42% / 42% 60% 40% 58%; }
+  66%  { border-radius: 46% 54% 36% 64% / 64% 36% 60% 40%; }
+  100% { border-radius: 56% 44% 62% 38% / 38% 58% 44% 56%; }
 }
 
 @keyframes drift-1 {
