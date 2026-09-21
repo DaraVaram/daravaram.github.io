@@ -3,13 +3,14 @@ layout: post
 title:  "Not All Objectives Are Born Equal: Priority-Constrained Descent for Hierarchical Multi-Objective Optimization"
 date:   2026-06-30 09:00:00 +00:00
 image: /images/PCD.png
-categories: "other"
+categories: "research"
 author: "Dara Varam"
 authors: "<strong>D. Varam</strong>, M. I. AlHajri"
-venue: "arXiv pre-print"
+venue: "Transactions on Machine Learning Research (TMLR)"
 website: https://daravaram.github.io/PCD/
-code:
+code: https://github.com/DaraVaram/priority-constrained-descent
 arxiv: https://arxiv.org/abs/2606.29521
+paper: https://openreview.net/forum?id=HT01yGHLEt
 ---
 
 We present Priority-Constrained Descent, a drop-in gradient optimizer that follows your primary objective and bends away from it only as much as needed to keep every secondary constraint progressing.
