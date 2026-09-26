@@ -3,24 +3,26 @@
 
 /* ==========================================================================
    Dara Varam — academic site
-   Dark theme built around the PCD purple (#6a1b9a)
+   Dark, minimalist grey theme. Single Myriad-first sans-serif throughout.
    ========================================================================== */
 
 :root {
-  --pcd:         #6a1b9a;                      /* the PCD purple            */
-  --pcd-soft:    rgba(106, 27, 154, 0.16);     /* washes & fills            */
-  --pcd-bright:  #9d4edd;                      /* icons, rules, highlights  */
-  --link:        #c77dff;                      /* links on dark             */
-  --link-hover:  #e0aaff;
-  --bg:          #0e0b13;                      /* page background           */
-  --surface:     #171221;                      /* cards                     */
-  --surface-2:   #1f1830;                      /* nested cards, chips       */
-  --border:      rgba(157, 78, 221, 0.22);
-  --border-soft: rgba(157, 78, 221, 0.12);
-  --text:        #e9e3f2;
-  --muted:       #a79bbd;
-  --shadow:      0 10px 30px rgba(0, 0, 0, 0.45);
-  --glow:        0 6px 24px rgba(106, 27, 154, 0.28);
+  --font:        'Myriad Pro', 'Myriad Set Pro', 'Open Sans', -apple-system, BlinkMacSystemFont,
+                 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --accent:      #bdbdbd;                      /* icons, rules, highlights  */
+  --accent-strong: #f5f5f5;                    /* strongest accent / focus  */
+  --fill:        #3a3a3a;                      /* solid hover fill          */
+  --link:        #cfcfcf;                      /* links on dark             */
+  --link-hover:  #ffffff;
+  --bg:          #121212;                      /* page background           */
+  --surface:     #1c1c1c;                      /* cards                     */
+  --surface-2:   #262626;                      /* nested cards, chips       */
+  --border:      rgba(255, 255, 255, 0.14);
+  --border-soft: rgba(255, 255, 255, 0.07);
+  --text:        #eaeaea;
+  --muted:       #999999;
+  --shadow:      0 10px 30px rgba(0, 0, 0, 0.5);
+  --glow:        0 6px 20px rgba(255, 255, 255, 0.10);
 }
 
 html {
@@ -83,7 +85,7 @@ body {
    static set of random shapes and skips the animation loop entirely */
 
 ::selection {
-  background: rgba(106, 27, 154, 0.6);
+  background: rgba(255, 255, 255, 0.25);
   color: #fff;
 }
 
@@ -98,7 +100,7 @@ tr,
 p,
 li,
 a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: var(--font);
   font-size: 15px;
   line-height: 1.65;
   font-display: auto;
@@ -110,22 +112,22 @@ strong {
 }
 
 h1 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: var(--font);
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.2px;
   margin: 0 0 14px 0;
 }
 
 h2 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: var(--font);
   font-size: 25px;
   font-weight: 600;
   margin: 0;
   padding: 0;
 }
 
-/* small purple rule under section titles */
+/* small grey rule under section titles */
 h2.ruled {
   display: block;
   padding-bottom: 10px;
@@ -139,11 +141,11 @@ h2.ruled::after {
   width: 46px;
   height: 3px;
   border-radius: 3px;
-  background: linear-gradient(90deg, var(--pcd-bright), rgba(157, 78, 221, 0.15));
+  background: linear-gradient(90deg, var(--accent), rgba(255, 255, 255, 0.08));
 }
 
 h3 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: var(--font);
   font-size: 16px;
   font-weight: 700;
   margin: 0;
@@ -171,7 +173,7 @@ a:focus {
 }
 
 a:focus-visible {
-  outline: 2px solid var(--pcd-bright);
+  outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
   border-radius: 3px;
 }
@@ -183,7 +185,7 @@ hr {
 }
 
 .fa {
-  color: var(--pcd-bright);
+  color: var(--accent);
   transition: color 0.15s ease;
 }
 
@@ -233,7 +235,7 @@ hr {
   margin-bottom: 26px;
   border-radius: 999px;
   border: 1px solid var(--border-soft);
-  background: rgba(23, 18, 33, 0.85);
+  background: rgba(28, 28, 28, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
@@ -249,7 +251,7 @@ hr {
 
 .site-nav a:hover,
 .site-nav a:focus {
-  background: var(--pcd);
+  background: var(--fill);
   color: #fff;
   text-decoration: none;
 }
@@ -266,7 +268,7 @@ hr {
   border-radius: 18px;
   border: 1px solid var(--border);
   background:
-    linear-gradient(155deg, rgba(106, 27, 154, 0.26), rgba(106, 27, 154, 0.05) 55%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02) 55%),
     var(--surface);
   box-shadow: var(--shadow);
 }
@@ -288,8 +290,8 @@ hr {
   width: 100%;
   max-width: 250px;
   border-radius: 50%;
-  border: 3px solid rgba(157, 78, 221, 0.55);
-  box-shadow: 0 0 0 6px rgba(106, 27, 154, 0.15), var(--shadow);
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.06), var(--shadow);
 }
 
 /* contact + social pills */
@@ -307,7 +309,7 @@ hr {
   padding: 5px 14px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(14, 11, 19, 0.35);
+  background: rgba(0, 0, 0, 0.35);
   color: var(--link);
   font-size: 13.5px;
   white-space: nowrap;
@@ -315,8 +317,8 @@ hr {
 
 .chip:hover,
 .chip:focus {
-  background: var(--pcd);
-  border-color: var(--pcd-bright);
+  background: var(--fill);
+  border-color: var(--accent);
   color: #fff;
   text-decoration: none;
 }
@@ -348,26 +350,26 @@ hr {
 }
 
 .card h3 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: var(--font);
   font-size: 18px;
   font-weight: 600;
-  color: var(--pcd-bright);
+  color: var(--accent);
 }
 
 .subcard {
   background: var(--surface-2);
   border: 1px solid var(--border-soft);
-  border-left: 3px solid var(--pcd-bright);
+  border-left: 3px solid var(--accent);
   border-radius: 10px;
   padding: 14px 18px;
   margin-top: 14px;
 }
 
 .subcard h3 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: var(--font);
   font-size: 16px;
   font-weight: 600;
-  color: var(--pcd-bright);
+  color: var(--accent);
 }
 
 .card ul {
@@ -380,12 +382,12 @@ hr {
 }
 
 .card li::marker {
-  color: var(--pcd-bright);
+  color: var(--accent);
 }
 
 .course-code {
   font-weight: 700;
-  color: var(--pcd-bright);
+  color: var(--accent);
   letter-spacing: 0.3px;
 }
 
@@ -473,15 +475,15 @@ hr {
   padding: 2px 11px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(106, 27, 154, 0.10);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--link);
   white-space: nowrap;
 }
 
 .tag:hover,
 .tag:focus {
-  background: var(--pcd);
-  border-color: var(--pcd-bright);
+  background: var(--fill);
+  border-color: var(--accent);
   color: #fff;
   text-decoration: none;
 }
@@ -520,10 +522,10 @@ hr {
 }
 
 .misc-card h3 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: var(--font);
   font-size: 18px;
   font-weight: 600;
-  color: var(--pcd-bright);
+  color: var(--accent);
   margin-bottom: 8px;
 }
 
@@ -537,7 +539,7 @@ hr {
 }
 
 .misc-card li::marker {
-  color: var(--pcd-bright);
+  color: var(--accent);
 }
 
 /* long simple lists flow into two columns */
@@ -652,7 +654,7 @@ hr {
 
 /* legacy helpers kept for inner pages / old markup */
 span.highlight {
-  background-color: rgba(157, 78, 221, 0.25);
+  background-color: rgba(255, 255, 255, 0.18);
 }
 
 .float-hover {
