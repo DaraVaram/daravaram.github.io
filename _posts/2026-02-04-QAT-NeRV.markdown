@@ -6,8 +6,8 @@ image: /images/qatnerv.png
 categories: "submitted"
 author: "Dara Varam"
 authors: "Anonymous Submission"
-venue: "IEEE International Conference on Image Processing (ICIP)"
-website: https://2026.ieeeicip.org/
+venue: "IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)"
+website: https://2027.ieeeicassp.org/
 code:
 ---
 

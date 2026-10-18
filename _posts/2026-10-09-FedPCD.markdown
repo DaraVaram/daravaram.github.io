@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "FedPCD: Priority-Constrained Federated Aggregation"
+date:   2026-10-09 09:00:00 +00:00
+image: /images/FedPCD-system-diagram.png
+categories: "submitted"
+author: "Dara Varam"
+authors: "Y. Irshaid, <strong>D. Varam</strong>, M. I. AlHajri"
+venue: "Transactions on Machine Learning Research (TMLR)"
+website: https://daravaram.github.io/FedPCD/
+arxiv: https://arxiv.org/abs/2610.13508
+video: https://daravaram.github.io/FedPCD/#video
+---
+
+We propose FedPCD, a priority-constrained federated optimization framework that keeps the FedAvg direction as the primary objective while applying the minimum correction necessary to meet client performance constraints, achieving the highest global accuracy across 18 heterogeneous FL benchmarks.

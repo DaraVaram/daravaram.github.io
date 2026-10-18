@@ -6,8 +6,8 @@ image: /images/Quant-Review.png
 categories: "submitted"
 author: "Dara Varam"
 authors: "H. A. Abushahla, <strong>D. Varam</strong>, A. J. N. Panopio, and M. I. AlHajri"
-venue: "IEEE Access"
-website: https://ieeeaccess.ieee.org/
+venue: "Artificial Intelligence Review"
+website: https://link.springer.com/journal/10462
 arxiv: https://arxiv.org/abs/2508.15008
 code:
 ---

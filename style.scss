@@ -417,6 +417,48 @@ hr {
   border-color: var(--border);
 }
 
+/* cards for papers that have a video demonstration get a small accent */
+.pub.has-video {
+  border-color: rgba(230, 180, 70, 0.35);
+  box-shadow: 0 0 0 1px rgba(230, 180, 70, 0.12) inset;
+}
+
+.pub.has-video:hover {
+  border-color: rgba(230, 180, 70, 0.6);
+}
+
+.video-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(230, 180, 70, 0.14);
+  color: #e6b446;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.tag.video-tag {
+  border-color: rgba(230, 180, 70, 0.4);
+  color: #e6b446;
+}
+
+.tag.video-tag:hover,
+.tag.video-tag:focus {
+  background: rgba(230, 180, 70, 0.18);
+  border-color: #e6b446;
+  color: #e6b446;
+}
+
+.tag.video-tag:hover .fa,
+.tag.video-tag:focus .fa {
+  color: #e6b446;
+}
+
 .pub-thumb {
   align-self: center;
   background: #fff;               /* white frame so light figures sit well on dark */

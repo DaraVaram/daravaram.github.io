@@ -11,6 +11,7 @@ website: https://daravaram.github.io/PCD/
 code: https://github.com/DaraVaram/priority-constrained-descent
 arxiv: https://arxiv.org/abs/2606.29521
 paper: https://openreview.net/forum?id=HT01yGHLEt
+video: https://daravaram.github.io/PCD/#video
 ---
 
 We present Priority-Constrained Descent, a drop-in gradient optimizer that follows your primary objective and bends away from it only as much as needed to keep every secondary constraint progressing.
