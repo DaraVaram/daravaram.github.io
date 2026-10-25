@@ -9,6 +9,7 @@ authors: "H. A. Abushahla, <strong>D. Varam</strong>, M. I. AlHajri"
 venue: "IEEE Communications Letters"
 website: https://ieeexplore.ieee.org/document/11048877
 code: https://github.com/7abushahla/Spectrum-Sensing
+video: https://daravaram.github.io/video-library/spectrum-sensing/
 ---
 
 We study the effect of quantization-aware-training (QAT) on two SOTA spectrum sensing models - DeepSense and ParallelCNN. Models are deployed on a Sony Spresense for hardware evaluation.
