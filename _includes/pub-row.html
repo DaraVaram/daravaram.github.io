@@ -1,6 +1,6 @@
 <article class="pub lift{% if include.post.video %} has-video{% endif %}">
   <div class="pub-thumb">
-    <img src="{{ include.post.image }}" alt="project image">
+    <img src="{{ include.post.image }}" alt="Figure from {{ include.post.title | escape }}" loading="lazy" decoding="async">
   </div>
   <div class="pub-body">
     <h3 class="pub-title">{{ include.post.title }}{% if include.post.video %} <span class="video-badge" title="Video demonstration available"><i class="fa fa-video-camera"></i> video demo</span>{% endif %}</h3>

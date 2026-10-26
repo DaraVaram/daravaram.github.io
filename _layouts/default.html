@@ -16,11 +16,13 @@
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <meta name="author" content="{{ site.name }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#121212">
+  <meta name="theme-color" content="#0e0f11">
   <link rel="shortcut icon" href="images/goblin.svg" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -30,24 +32,24 @@
     <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <defs>
         <linearGradient id="blobg-1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#e0e0e0"/>
-          <stop offset="0.55" stop-color="#9e9e9e"/>
-          <stop offset="1" stop-color="#616161"/>
+          <stop offset="0" stop-color="#c7d0ff"/>
+          <stop offset="0.55" stop-color="#6b76a8"/>
+          <stop offset="1" stop-color="#2b3045"/>
         </linearGradient>
         <linearGradient id="blobg-2" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#f5f5f5"/>
-          <stop offset="0.6" stop-color="#bdbdbd"/>
-          <stop offset="1" stop-color="#757575"/>
+          <stop offset="0" stop-color="#e8eaef"/>
+          <stop offset="0.6" stop-color="#9097a6"/>
+          <stop offset="1" stop-color="#3a3e48"/>
         </linearGradient>
         <linearGradient id="blobg-3" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stop-color="#cfcfcf"/>
-          <stop offset="0.55" stop-color="#8a8a8a"/>
-          <stop offset="1" stop-color="#4a4a4a"/>
+          <stop offset="0" stop-color="#b7c9d6"/>
+          <stop offset="0.55" stop-color="#5d6f7c"/>
+          <stop offset="1" stop-color="#262d33"/>
         </linearGradient>
         <linearGradient id="blobg-4" x1="1" y1="1" x2="0" y2="0">
-          <stop offset="0" stop-color="#d6d6d6"/>
-          <stop offset="0.55" stop-color="#a0a0a0"/>
-          <stop offset="1" stop-color="#5c5c5c"/>
+          <stop offset="0" stop-color="#d4cdf2"/>
+          <stop offset="0.55" stop-color="#7a7396"/>
+          <stop offset="1" stop-color="#2f2c3d"/>
         </linearGradient>
       </defs>
       <path fill="url(#blobg-1)"/>
@@ -56,6 +58,8 @@
       <path fill="url(#blobg-4)"/>
     </svg>
   </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="page">
 
@@ -76,10 +80,12 @@
       <a href="#misc">Misc</a>
     </nav>
 
+    <main id="main">
+
     <!-- Profile Introduction Section -->
     <header class="hero lift">
       <div class="hero-text">
-        <h1>Dara Varam</h1>
+        <h1 translate="no">Dara Varam</h1>
         <p>
           PhD in <a href="https://www.epfl.ch/education/phd/edee-electrical-engineering/">EDEE</a> @ <a href="https://www.epfl.ch/">École Polytechnique Fédérale de Lausanne</a>, specifically at the <a href="https://www.epfl.ch/labs/esl/">Embedded Systems Laboratory (ESL)</a>. Previously I did my MS in Machine Learning and my undergrad in Computer Engineering and Mathematics @ <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">AUS</a> with a minor in Data Science. I'm Iranian and I'm 24 years old.
         </p>
@@ -105,7 +111,7 @@
         </div>
       </div>
       <div class="hero-photo">
-        <img alt="profile photo" src="images/profile-picture2.jpg">
+        <img alt="Dara Varam as a child, wearing round sunglasses" src="images/profile-picture2.jpg" width="260" height="260">
       </div>
     </header>
 
@@ -126,7 +132,7 @@
         <div class="subcard">
           <h3>Machine Learning Thesis</h3>
           <h4 style="margin-top: 8px;">Not All Objectives Are Born Equal: Priority-Constrained Descent for Hierarchical Multi-Objective Optimization (Advised by: <a href="https://scholar.google.com/citations?user=d_ameTYAAAAJ&hl=en">M. I. AlHajri</a>)</h4>
-          <p style="margin: 0;">I worked on the development of a multi-objective optimization framework to allow for optimization problems where a natural hierarchy exists in the "importance" of the tasks for modern deep learning architectures. You can check the project page <a href="https://daravaram.github.io/PCD/">here</a>.</p>
+          <p style="margin: 0;">I worked on the development of a multi-objective optimization framework to allow for optimization problems where a natural hierarchy exists in the “importance” of the tasks for modern deep learning architectures. You can check the project page <a href="https://daravaram.github.io/PCD/">here</a>.</p>
         </div>
 
         <!-- PhD Thesis -->
@@ -212,37 +218,37 @@
         <p>Reviewed 30+ articles spanning the following venues:</p>
         <ul class="cols-2">
           <li>
-            <a href="https://www.nature.com/srep/" target="_blank">Nature – Scientific Reports</a>
+            <a href="https://www.nature.com/srep/" target="_blank" rel="noopener">Nature – Scientific Reports</a>
           </li>
           <li>
-            <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank">Association for the Advancement of Artificial Intelligence (AAAI) - 2026 Conference</a>
+            <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank" rel="noopener">Association for the Advancement of Artificial Intelligence (AAAI) - 2026 Conference</a>
           </li>
           <li>
-            <a href="https://aaai.org/conference/aaai/aaai-27/" target="_blank">Association for the Advancement of Artificial Intelligence (AAAI) - 2027 Conference</a>
+            <a href="https://aaai.org/conference/aaai/aaai-27/" target="_blank" rel="noopener">Association for the Advancement of Artificial Intelligence (AAAI) - 2027 Conference</a>
           </li>
           <li>
-            <a href="https://icce.org/2026/" target="_blank">IEEE International Conference on Consumer Electronics (ICCE) - 2026 Conference</a>
+            <a href="https://icce.org/2026/" target="_blank" rel="noopener">IEEE International Conference on Consumer Electronics (ICCE) - 2026 Conference</a>
           </li>
           <li>
-            <a href="https://2026.acmmm.org/" target="_blank">ACM International Conference on Multimedia (2026)</a>
+            <a href="https://2026.acmmm.org/" target="_blank" rel="noopener">ACM International Conference on Multimedia (2026)</a>
           </li>
           <li>
-            <a href="https://link.springer.com/journal/10462" target="_blank">Nature - Artificial Intelligence Review</a>
+            <a href="https://link.springer.com/journal/10462" target="_blank" rel="noopener">Nature - Artificial Intelligence Review</a>
           </li>
           <li>
-            <a href="https://biodatamining.biomedcentral.com/" target="_blank">Nature – BioData Mining</a>
+            <a href="https://biodatamining.biomedcentral.com/" target="_blank" rel="noopener">Nature – BioData Mining</a>
           </li>
           <li>
-            <a href="https://link.springer.com/journal/11760" target="_blank">Nature – Signal, Image and Video Processing</a>
+            <a href="https://link.springer.com/journal/11760" target="_blank" rel="noopener">Nature – Signal, Image and Video Processing</a>
           </li>
           <li>
-            <a href="https://link.springer.com/journal/10791" target="_blank">Nature – Discover Computing</a>
+            <a href="https://link.springer.com/journal/10791" target="_blank" rel="noopener">Nature – Discover Computing</a>
           </li>
           <li>
-            <a href="https://link.springer.com/journal/10586" target="_blank">Nature – Cluster Computing</a>
+            <a href="https://link.springer.com/journal/10586" target="_blank" rel="noopener">Nature – Cluster Computing</a>
           </li>
           <li>
-            <a href="https://link.springer.com/journal/11760" target="_blank">Nature – Applied Sciences</a>
+            <a href="https://link.springer.com/journal/11760" target="_blank" rel="noopener">Nature – Applied Sciences</a>
           </li>
         </ul>
       </div>
@@ -263,7 +269,7 @@
 
       <!-- Awards & Honors -->
       <div class="misc-card lift">
-        <h3>Awards & Honors</h3>
+        <h3>Awards &amp; Honors</h3>
         <ul>
           <li>Winner of the Master’s Level – Graduate Student Research, Scholarly, and Creative Work Excellence Award @ AUS</li>
           <li>Winner of the 2026 CEN Graduate Academic Excellence Award @ AUS</li>
@@ -282,10 +288,10 @@
       </div>
     </section>
 
+    </main>
+
     <footer class="site-footer">
-      <p>
-        Design and source code inspired by <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of <a href="https://jonbarron.info">Jon Barron's website</a>.
-      </p>
+      <p>&copy; {{ 'now' | date: "%Y" }} Dara Varam</p>
     </footer>
 
   </div>
