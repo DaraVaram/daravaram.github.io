@@ -3,61 +3,77 @@
 
 /* ==========================================================================
    Dara Varam — academic site
-   Clean + a little brutalism: cool graphite surfaces, hard 1px rules,
-   square-ish corners, offset block shadows on hover, mono labels.
-   Type: Space Grotesk (display) / IBM Plex Sans (body) / IBM Plex Mono.
+   Apple-inspired: system type with size-specific tracking, soft layered
+   depth instead of hard rules, translucent "material" chrome, instant
+   press feedback and calm, critically damped motion.
    ========================================================================== */
 
 :root {
-  /* type */
-  --font:         'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  --font-display: 'Space Grotesk', var(--font);
-  --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* type — the platform font first (SF Pro on Apple devices), Inter elsewhere */
+  --font:         -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:    ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace;
 
-  /* type scale (12/14/16/20/24/32 + hero) */
-  --fs-12: 12px;
-  --fs-14: 14px;
-  --fs-16: 16px;
-  --fs-20: 20px;
-  --fs-24: 24px;
-  --fs-32: 32px;
-  --fs-hero: clamp(40px, 7vw, 64px);
+  /* type scale (rem, so layout follows the user's text size) */
+  --fs-12: 0.75rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-17: 1.0625rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-32: 2rem;
+  --fs-hero: clamp(2.75rem, 7vw, 4.5rem);
 
   /* 8pt spacing */
-  --s-1: 4px;
-  --s-2: 8px;
-  --s-3: 16px;
-  --s-4: 24px;
-  --s-5: 32px;
-  --s-6: 48px;
-  --s-7: 64px;
-  --s-8: 96px;
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 1rem;
+  --s-4: 1.5rem;
+  --s-5: 2rem;
+  --s-6: 3rem;
+  --s-7: 4rem;
+  --s-8: 6rem;
 
-  /* color — cool graphite with a single ice-blue signal */
-  --bg:          #0e0f11;                      /* page background           */
-  --surface:     #16171a;                      /* cards                     */
-  --surface-2:   #1e2024;                      /* nested cards, chips       */
-  --fill:        #2a2d33;                      /* solid hover fill          */
-  --border:      #34373e;                      /* hard rules                */
-  --border-soft: #24262b;
-  --text:        #ecedef;
-  --muted:       #9a9ea8;                      /* ≥ 6:1 on --surface        */
-  --link:        #d6d9df;
+  /* color — deep graphite with a single soft-blue signal */
+  --bg:          #0b0b0d;
+  --surface:     rgba(28, 28, 32, 0.72);       /* cards: thick material    */
+  --surface-2:   rgba(255, 255, 255, 0.06);    /* chips, nested cards      */
+  --fill:        rgba(255, 255, 255, 0.10);    /* hover fill               */
+  --border:      rgba(255, 255, 255, 0.10);    /* hairlines                */
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --edge:        rgba(255, 255, 255, 0.14);    /* light catching the top   */
+  --text:        #f5f5f7;
+  --muted:       #a1a1a6;
+  --link:        #e8e8ed;
   --link-hover:  #ffffff;
-  --accent:      #a9b8ff;                      /* ice-blue signal           */
-  --accent-ink:  #0e0f11;                      /* text on accent            */
-  --accent-strong: #c9d3ff;
-  --video:       #e6b446;                      /* video-demo highlight      */
+  --accent:      #8fb2ff;
+  --accent-ink:  #0b0b0d;
+  --accent-strong: #b9cdff;
+  --video:       #ffc35a;
 
-  --radius:      4px;
-  --shadow-hard: 6px 6px 0 0 #000;
-  --shadow-hard-accent: 6px 6px 0 0 var(--accent);
+  --radius-sm:   10px;
+  --radius:      18px;
+  --radius-lg:   28px;
+
+  /* soft, layered shadows: bigger surfaces read as thicker */
+  --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.30), 0 2px 8px rgba(0, 0, 0, 0.18);
+  --shadow:      0 1px 1px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.30), 0 24px 64px rgba(0, 0, 0, 0.25);
+  --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.40), 0 40px 96px rgba(0, 0, 0, 0.30);
+
+  /* motion — critically damped feel, no overshoot */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-press:  cubic-bezier(0.3, 0, 0.5, 1);
+  --t-fast:      120ms;
+  --t:           320ms;
+
+  --material-blur: blur(24px) saturate(180%);
 }
 
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;               /* keep anchors/focus clear of sticky nav */
+  scroll-padding-top: 88px;               /* keep anchors/focus clear of sticky nav */
+  font-size: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -65,14 +81,20 @@ html {
     scroll-behavior: auto;
   }
 
+  /* gentler equivalent: keep color/opacity cross-fades, drop movement */
   *,
   *::before,
   *::after {
-    transition: none !important;
+    transition-property: color, background-color, border-color, opacity, box-shadow !important;
+    transition-duration: 150ms !important;
   }
 
   .lift:hover,
-  a.chip:hover {
+  .lift:active,
+  a.chip:hover,
+  a.chip:active,
+  .tag:active,
+  .site-nav a:active {
     transform: none !important;
   }
 }
@@ -85,10 +107,11 @@ button {
 
 .skip-link {
   position: absolute;
-  left: var(--s-2, 8px);
+  left: var(--s-2);
   top: -100px;
   z-index: 100;
   padding: 8px 16px;
+  border-radius: 999px;
   background: var(--accent);
   color: var(--accent-ink);
   font-weight: 600;
@@ -108,6 +131,9 @@ body {
   background-color: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
 }
 
 /*******************/
@@ -115,9 +141,9 @@ body {
 /*******************/
 
 /* "Living topography": one full-screen WebGL fragment shader (inline script
-   in the layout) draws slowly drifting noise contour lines, brighter every
-   fifth level and calmer toward the centre column. A random seed gives a
-   different landscape per visit. */
+   in the layout) draws slowly drifting noise contour lines. It sits behind
+   a dimming veil so it reads as ambient depth, never as motion competing
+   with the content. */
 
 .bg-blobs {
   position: fixed;
@@ -132,6 +158,7 @@ body {
   display: block;
   width: 100%;
   height: 100%;
+  opacity: 0.55;
 }
 
 /* no WebGL: fall back to a quiet static glow */
@@ -141,27 +168,27 @@ body {
 
 .no-topo .bg-blobs {
   background:
-    radial-gradient(40% 50% at 5% 25%, rgba(169, 184, 255, 0.10), transparent 70%),
+    radial-gradient(40% 50% at 5% 25%, rgba(143, 178, 255, 0.10), transparent 70%),
     radial-gradient(35% 45% at 95% 80%, rgba(158, 146, 217, 0.08), transparent 70%),
     var(--bg);
 }
 
-/* film grain over the lines */
+/* soft vignette: calm ground in the centre column, depth at the edges */
 .bg-blobs::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  opacity: 0.05;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(143, 178, 255, 0.06), transparent 60%),
+    radial-gradient(60% 100% at 50% 50%, rgba(11, 11, 13, 0.55), transparent 100%);
 }
 
 /* prefers-reduced-motion is handled by the topography script: it draws one
    still landscape and skips the animation loop entirely */
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: rgba(143, 178, 255, 0.35);
+  color: #fff;
 }
 
 /**************/
@@ -176,8 +203,9 @@ p,
 li,
 a {
   font-family: var(--font);
-  font-size: var(--fs-16);
-  line-height: 1.65;
+  font-size: var(--fs-17);
+  line-height: 1.53;
+  letter-spacing: -0.012em;             /* SF Text tracking at 17pt */
 }
 
 strong {
@@ -189,10 +217,13 @@ h1 {
   font-family: var(--font-display);
   font-size: var(--fs-hero);
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.035em;
-  text-transform: uppercase;
+  line-height: 1.05;                    /* tight leading for large text */
+  letter-spacing: -0.035em;             /* negative tracking as it grows */
   margin: 0 0 var(--s-4) 0;
+  background: linear-gradient(180deg, #ffffff 30%, #b8b8c0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h1,
@@ -206,32 +237,31 @@ h2 {
   font-family: var(--font-display);
   font-size: var(--fs-32);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   margin: 0;
   padding: 0;
 }
 
-/* section titles: mono index + hard full-width rule */
+/* section titles: a quiet numbered eyebrow above a bold headline */
 body {
   counter-reset: section;
 }
 
 h2.ruled {
   display: flex;
-  align-items: baseline;
-  gap: var(--s-3);
-  padding-bottom: var(--s-2);
-  border-bottom: 2px solid var(--text);
+  flex-direction: column;
+  gap: var(--s-1);
 }
 
 h2.ruled::before {
   counter-increment: section;
   content: counter(section, decimal-leading-zero);
-  font-family: var(--font-mono);
+  font-family: var(--font);
   font-size: var(--fs-14);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
   color: var(--accent);
 }
 
@@ -239,24 +269,26 @@ h3 {
   font-family: var(--font-display);
   font-size: var(--fs-16);
   font-weight: 600;
+  letter-spacing: -0.01em;
   margin: 0;
   padding: 0;
 }
 
 h4 {
-  font-size: var(--fs-16);
-  font-weight: 500;
-  line-height: 1.5;
+  font-size: var(--fs-17);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
   margin: 0 0 var(--s-1) 0;
 }
 
 a {
   color: var(--link);
   text-decoration: underline;
-  text-decoration-color: var(--border);
+  text-decoration-color: rgba(255, 255, 255, 0.22);
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  transition: color var(--t-fast) var(--ease-out), text-decoration-color var(--t-fast) var(--ease-out);
 }
 
 a:hover,
@@ -270,8 +302,8 @@ a:focus-visible,
 .tag:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: var(--radius);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 hr {
@@ -282,7 +314,7 @@ hr {
 
 .fa {
   color: var(--muted);
-  transition: color 0.15s ease;
+  transition: color var(--t-fast) var(--ease-out);
 }
 
 /**********/
@@ -290,34 +322,57 @@ hr {
 /**********/
 
 .page {
-  max-width: 1040px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: var(--s-4) var(--s-4) var(--s-5);
+  padding: var(--s-3) var(--s-4) var(--s-5);
 }
 
 .section {
   margin-top: var(--s-8);
-  scroll-margin-top: 80px;
+  scroll-margin-top: 88px;
 }
 
 .section-desc {
   color: var(--muted);
-  font-size: var(--fs-14);
+  font-size: var(--fs-16);
+  letter-spacing: -0.01em;
   margin: var(--s-2) 0 0 0;
-  max-width: 68ch;
+  max-width: 64ch;
 }
 
-/* brutal hover: lift up-left onto a hard offset block */
+/* shared "material" surface */
+.hero,
+.card,
+.pub,
+.misc-card {
+  background: var(--surface);
+  backdrop-filter: var(--material-blur);
+  -webkit-backdrop-filter: var(--material-blur);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 0 var(--edge), var(--shadow);
+}
+
+/* hover: rise gently toward the viewer; press: give way under the pointer */
 .lift {
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  transition:
+    transform var(--t) var(--ease-out),
+    box-shadow var(--t) var(--ease-out),
+    border-color var(--t) var(--ease-out);
 }
 
 @media (hover: hover) {
   .lift:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: var(--shadow-hard);
-    border-color: var(--text);
+    transform: translateY(-3px);
+    box-shadow: inset 0 1px 0 0 var(--edge), var(--shadow-lift);
+    border-color: rgba(255, 255, 255, 0.16);
   }
+}
+
+/* only small, clickable-feeling surfaces get the press response */
+.pub.lift:active {
+  transform: scale(0.99);
+  transition-duration: var(--t-fast);
+  transition-timing-function: var(--ease-press);
 }
 
 /************/
@@ -326,44 +381,59 @@ hr {
 
 .site-nav {
   position: sticky;
-  top: var(--s-2);
+  top: var(--s-3);
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0;
-  margin-bottom: var(--s-5);
+  gap: 2px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto var(--s-5);
+  padding: 4px;
+  border-radius: 999px;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: rgba(14, 15, 17, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(30, 30, 34, 0.62);
+  backdrop-filter: var(--material-blur);
+  -webkit-backdrop-filter: var(--material-blur);
+  box-shadow: inset 0 1px 0 0 var(--edge), var(--shadow-sm), 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 .site-nav a {
-  flex: 1 1 auto;
-  text-align: center;
-  padding: 10px var(--s-3);
-  min-height: 44px;
-  font-family: var(--font-mono);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--s-3);
+  min-height: 40px;
+  border-radius: 999px;
+  font-family: var(--font);
   font-size: var(--fs-14);
   font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
+  letter-spacing: -0.005em;
+  color: rgba(245, 245, 247, 0.78);
   text-decoration: none;
   white-space: nowrap;
-  border-right: 1px solid var(--border);
-}
-
-.site-nav a:last-child {
-  border-right: 0;
+  transition:
+    background-color var(--t-fast) var(--ease-out),
+    color var(--t-fast) var(--ease-out),
+    transform var(--t-fast) var(--ease-press);
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--fill);
+  color: var(--text);
+}
+
+.site-nav a:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.site-nav a.is-active {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text);
 }
 
 /********/
@@ -374,10 +444,8 @@ hr {
   display: flex;
   align-items: center;
   gap: var(--s-6);
-  padding: var(--s-6);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: rgba(22, 23, 26, 0.88);
+  padding: var(--s-6) var(--s-6);
+  border-radius: var(--radius-lg);
 }
 
 .hero-text {
@@ -387,6 +455,7 @@ hr {
 .hero-text p {
   margin: 0 0 var(--s-3) 0;
   max-width: 62ch;
+  color: rgba(245, 245, 247, 0.86);
 }
 
 .hero-photo {
@@ -398,13 +467,15 @@ hr {
   display: block;
   width: 100%;
   max-width: 260px;
+  height: auto;
   margin: 0 auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: var(--radius);
-  border: 2px solid var(--text);
-  box-shadow: 10px 10px 0 0 var(--accent);
-  filter: grayscale(0.15);
+  border-radius: 32px;                  /* continuous, icon-like corners */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(143, 178, 255, 0.12);
 }
 
 /* contact + social pills */
@@ -420,30 +491,33 @@ hr {
   align-items: center;
   gap: var(--s-2);
   min-height: 40px;
-  padding: var(--s-2) 14px;
-  border-radius: var(--radius);
+  padding: var(--s-2) 16px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface-2);
   color: var(--link);
-  font-family: var(--font-mono);
+  font-family: var(--font);
   font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: -0.005em;
   text-decoration: none;
   white-space: nowrap;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+  transition:
+    transform var(--t-fast) var(--ease-press),
+    background-color var(--t-fast) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out),
+    color var(--t-fast) var(--ease-out);
 }
 
 a.chip:hover,
 a.chip:focus-visible {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--text);
+  border-color: var(--text);
   color: var(--accent-ink);
-  transform: translate(-2px, -2px);
-  box-shadow: 3px 3px 0 0 #000;
 }
 
 a.chip:active {
-  transform: none;
-  box-shadow: none;
+  transform: scale(0.96);
 }
 
 a.chip:hover .fa,
@@ -454,7 +528,11 @@ a.chip:focus-visible .fa {
 /* email chips are plain text, not buttons */
 span.chip {
   background: transparent;
-  border-style: dashed;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 /*********/
@@ -462,10 +540,8 @@ span.chip {
 /*********/
 
 .card {
-  background: rgba(22, 23, 26, 0.9);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: var(--s-5);
+  border-radius: var(--radius-lg);
+  padding: var(--s-5) var(--s-6);
 }
 
 .card + .card {
@@ -485,17 +561,16 @@ span.chip {
 .subcard {
   background: var(--surface-2);
   border: 1px solid var(--border-soft);
-  border-left: 4px solid var(--accent);
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-radius: var(--radius);
   padding: var(--s-3) var(--s-4);
   margin-top: var(--s-3);
 }
 
 .subcard h3 {
-  font-family: var(--font-mono);
-  font-size: var(--fs-14);
+  font-family: var(--font);
+  font-size: var(--fs-12);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;               /* small text: slightly positive tracking */
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -510,14 +585,13 @@ span.chip {
 }
 
 .card li::marker {
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .course-code {
   font-family: var(--font-mono);
   font-weight: 600;
   color: var(--accent);
-  letter-spacing: 0.04em;
 }
 
 /****************/
@@ -538,19 +612,17 @@ span.chip {
   align-items: start;
   padding: var(--s-3);
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: rgba(22, 23, 26, 0.9);
 }
 
-/* cards for papers that have a video demonstration get a small accent */
+/* papers with a video demonstration get a warm glow on the top edge */
 .pub.has-video {
-  border-top: 3px solid var(--video);
+  box-shadow: inset 0 1px 0 0 rgba(255, 195, 90, 0.55), var(--shadow);
 }
 
 @media (hover: hover) {
   .pub.has-video.lift:hover {
-    border-color: var(--video);
-    box-shadow: 6px 6px 0 0 rgba(230, 180, 70, 0.55);
+    border-color: rgba(255, 195, 90, 0.35);
+    box-shadow: inset 0 1px 0 0 rgba(255, 195, 90, 0.7), var(--shadow-lift), 0 0 48px rgba(255, 195, 90, 0.10);
   }
 }
 
@@ -558,25 +630,24 @@ span.chip {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-family: var(--font-mono);
+  font-family: var(--font);
   font-size: var(--fs-12);
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 1px var(--s-2);
-  border-radius: 2px;
-  background: var(--video);
-  color: #14110a;
+  letter-spacing: 0.01em;
+  padding: 2px var(--s-2);
+  border-radius: 999px;
+  background: rgba(255, 195, 90, 0.16);
+  color: var(--video);
   vertical-align: middle;
   white-space: nowrap;
 }
 
 .video-badge .fa {
-  color: #14110a;
+  color: var(--video);
 }
 
 .tag.video-tag {
-  border-color: var(--video);
+  border-color: rgba(255, 195, 90, 0.35);
   color: var(--video);
 }
 
@@ -588,26 +659,28 @@ span.chip {
 .tag.video-tag:focus-visible {
   background: var(--video);
   border-color: var(--video);
-  color: #14110a;
+  color: #1a1206;
 }
 
 .tag.video-tag:hover .fa,
 .tag.video-tag:focus-visible .fa {
-  color: #14110a;
+  color: #1a1206;
 }
 
 .pub-thumb {
   align-self: start;
   background: #fff;               /* white frame so light figures sit well on dark */
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
   padding: 6px;
-  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), var(--shadow-sm);
 }
 
 .pub-thumb img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 4px;
 }
 
 .pub-body {
@@ -621,15 +694,17 @@ span.chip {
 
 .pub-title {
   margin-bottom: var(--s-2);
-  font-size: var(--fs-16);
+  font-size: var(--fs-17);
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 
 .pub-authors {
   color: var(--muted);
   font-size: var(--fs-14);
-  line-height: 1.5;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
 }
 
 .pub-authors strong {
@@ -639,11 +714,13 @@ span.chip {
 .pub-venue {
   color: var(--muted);
   font-size: var(--fs-14);
+  letter-spacing: -0.005em;
 }
 
 .pub-venue em {
   color: var(--accent-strong);
   font-style: normal;
+  font-weight: 500;
 }
 
 .pub-links {
@@ -657,23 +734,34 @@ span.chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 32px;
-  font-family: var(--font-mono);
+  min-height: 30px;
+  font-family: var(--font);
   font-size: var(--fs-14);
-  padding: 2px 10px;
-  border-radius: 2px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  padding: 2px 12px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface-2);
   color: var(--link);
   text-decoration: none;
   white-space: nowrap;
+  transition:
+    transform var(--t-fast) var(--ease-press),
+    background-color var(--t-fast) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out),
+    color var(--t-fast) var(--ease-out);
 }
 
 .tag:hover,
 .tag:focus-visible {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--text);
+  border-color: var(--text);
   color: var(--accent-ink);
+}
+
+.tag:active {
+  transform: scale(0.95);
 }
 
 .tag:hover .fa,
@@ -685,7 +773,8 @@ span.chip {
 .pub-excerpt p {
   color: var(--muted);
   font-size: var(--fs-14);
-  line-height: 1.55;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
   margin: 0;
 }
 
@@ -702,18 +791,16 @@ span.chip {
 /**************/
 
 .misc-card {
-  background: rgba(22, 23, 26, 0.9);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   padding: var(--s-4) var(--s-5);
   margin-top: var(--s-3);
 }
 
 .misc-card h3 {
-  font-family: var(--font-mono);
-  font-size: var(--fs-14);
+  font-family: var(--font);
+  font-size: var(--fs-12);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: var(--s-2);
@@ -729,7 +816,7 @@ span.chip {
 }
 
 .misc-card li::marker {
-  color: var(--accent);
+  color: var(--muted);
 }
 
 /* long simple lists flow into two columns */
@@ -772,17 +859,51 @@ span.chip {
 
 .site-footer {
   margin-top: var(--s-8);
-  padding-top: var(--s-3);
-  border-top: 2px solid var(--text);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--border);
 }
 
 .site-footer p {
   color: var(--muted);
   font-variant-numeric: tabular-nums;
-  font-family: var(--font-mono);
   font-size: var(--fs-12);
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   margin: 0;
+}
+
+/****************************/
+/* ACCESSIBILITY PREFERENCES */
+/****************************/
+
+/* reduced transparency: frosted materials become solid */
+@media (prefers-reduced-transparency: reduce) {
+  .hero,
+  .card,
+  .pub,
+  .misc-card {
+    background: #1c1c20;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-nav {
+    background: #1c1c20;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* increased contrast: near-solid surfaces with defined borders */
+@media (prefers-contrast: more) {
+  :root {
+    --border:  rgba(255, 255, 255, 0.45);
+    --muted:   #d0d0d6;
+    --surface: #18181b;
+  }
+
+  .site-nav {
+    background: #18181b;
+  }
 }
 
 /**************/
@@ -803,11 +924,12 @@ span.chip {
     align-items: stretch;
     gap: var(--s-4);
     padding: var(--s-4);
+    border-radius: var(--radius);
   }
 
   .hero-photo img {
-    max-width: 180px;
-    box-shadow: 6px 6px 0 0 var(--accent);
+    max-width: 160px;
+    border-radius: 28px;
   }
 
   h2 {
@@ -817,6 +939,7 @@ span.chip {
   .card,
   .misc-card {
     padding: var(--s-4) var(--s-3);
+    border-radius: var(--radius);
   }
 
   .pub {
@@ -841,6 +964,7 @@ span.chip {
   .site-nav {
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: auto;
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -852,14 +976,14 @@ span.chip {
 
 /* legacy helpers kept for inner pages / old markup */
 span.highlight {
-  background-color: rgba(169, 184, 255, 0.22);
+  background-color: rgba(143, 178, 255, 0.22);
 }
 
 .float-hover {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform var(--t) var(--ease-out), box-shadow var(--t) var(--ease-out);
 }
 .float-hover:hover,
 .float-hover:focus-visible {
-  transform: translate(-3px, -3px);
-  box-shadow: var(--shadow-hard);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
 }
