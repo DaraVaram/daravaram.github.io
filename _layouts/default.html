@@ -27,36 +27,9 @@
 </head>
 
 <body>
-  <!-- Animated liquid backdrop: procedural SVG blobs (script at end of body) -->
+  <!-- Animated backdrop: living topography (WebGL shader at end of body) -->
   <div class="bg-blobs" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="blobg-1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#c7d0ff"/>
-          <stop offset="0.55" stop-color="#6b76a8"/>
-          <stop offset="1" stop-color="#2b3045"/>
-        </linearGradient>
-        <linearGradient id="blobg-2" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#e8eaef"/>
-          <stop offset="0.6" stop-color="#9097a6"/>
-          <stop offset="1" stop-color="#3a3e48"/>
-        </linearGradient>
-        <linearGradient id="blobg-3" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stop-color="#b7c9d6"/>
-          <stop offset="0.55" stop-color="#5d6f7c"/>
-          <stop offset="1" stop-color="#262d33"/>
-        </linearGradient>
-        <linearGradient id="blobg-4" x1="1" y1="1" x2="0" y2="0">
-          <stop offset="0" stop-color="#d4cdf2"/>
-          <stop offset="0.55" stop-color="#7a7396"/>
-          <stop offset="1" stop-color="#2f2c3d"/>
-        </linearGradient>
-      </defs>
-      <path fill="url(#blobg-1)"/>
-      <path fill="url(#blobg-2)"/>
-      <path fill="url(#blobg-3)"/>
-      <path fill="url(#blobg-4)"/>
-    </svg>
+    <canvas class="bg-topo"></canvas>
   </div>
 
   <a class="skip-link" href="#main">Skip to content</a>
@@ -296,92 +269,100 @@
 
   </div>
 
-  <!-- Procedural blob animation: random organic shapes on random, never-repeating paths -->
+  <!-- Living topography: animated noise contour lines drawn by one WebGL shader -->
   <script>
   (function () {
-    var svg = document.querySelector('.bg-blobs svg');
-    var paths = svg ? svg.querySelectorAll('path') : [];
-    if (!paths.length) return;
-    var W, H, S;
-    function measure() {
-      W = window.innerWidth;
-      H = window.innerHeight;
-      S = (W + H) / 2;
-      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-    }
-    measure();
-    window.addEventListener('resize', measure);
-
-    var R = function (a, b) { return a + Math.random() * (b - a); };
-    var TAU = Math.PI * 2;
-
-    /* home anchors: two creatures per side gutter (fractions of viewport) */
-    var homes = [
-      { fx: 0.04, fy: 0.22 }, { fx: 0.96, fy: 0.38 },
-      { fx: 0.06, fy: 0.80 }, { fx: 0.94, fy: 0.88 }
-    ];
-
-    var blobs = [];
-    for (var i = 0; i < paths.length; i++) {
-      var n = 7 + Math.floor(Math.random() * 3); /* 7-9 spline points */
-      var pts = [];
-      for (var k = 0; k < n; k++) {
-        pts.push({
-          base: R(0.72, 1.28),                            /* uneven at rest */
-          a1: R(0.10, 0.22), f1: R(0.20, 0.50), p1: R(0, TAU),
-          a2: R(0.05, 0.12), f2: R(0.55, 1.00), p2: R(0, TAU)
-        });
-      }
-      blobs.push({
-        el: paths[i], home: homes[i % homes.length], pts: pts,
-        fr: R(0.11, 0.15),
-        rot0: R(0, TAU), rotV: R(-0.06, 0.06),
-        /* two incommensurate sines per axis = quasi-periodic wandering */
-        ax1: R(0.030, 0.060), wx1: R(0.05, 0.10), px1: R(0, TAU),
-        ax2: R(0.012, 0.030), wx2: R(0.12, 0.22), px2: R(0, TAU),
-        ay1: R(0.070, 0.150), wy1: R(0.04, 0.09), py1: R(0, TAU),
-        ay2: R(0.025, 0.060), wy2: R(0.11, 0.20), py2: R(0, TAU)
-      });
+    var cv = document.querySelector('.bg-topo');
+    var gl = cv && (cv.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'low-power' }));
+    if (!gl || !gl.getExtension('OES_standard_derivatives')) {
+      document.documentElement.classList.add('no-topo');
+      return;
     }
 
-    function draw(t) {
-      for (var i = 0; i < blobs.length; i++) {
-        var b = blobs[i], n = b.pts.length;
-        var cx = (b.home.fx + b.ax1 * Math.sin(b.wx1 * t + b.px1) + b.ax2 * Math.sin(b.wx2 * t + b.px2)) * W;
-        var cy = (b.home.fy + b.ay1 * Math.sin(b.wy1 * t + b.py1) + b.ay2 * Math.sin(b.wy2 * t + b.py2)) * H;
-        var rot = b.rot0 + b.rotV * t;
-        var baseR = b.fr * S;
-        var xs = [], ys = [];
-        for (var k = 0; k < n; k++) {
-          var p = b.pts[k];
-          var rad = baseR * (p.base + p.a1 * Math.sin(p.f1 * t + p.p1) + p.a2 * Math.sin(p.f2 * t + p.p2));
-          var ang = rot + k * TAU / n;
-          xs.push(cx + rad * Math.cos(ang));
-          ys.push(cy + rad * Math.sin(ang));
-        }
-        /* closed Catmull-Rom spline rendered as cubic Beziers */
-        var d = 'M' + xs[0].toFixed(1) + ',' + ys[0].toFixed(1);
-        for (k = 0; k < n; k++) {
-          var k0 = (k - 1 + n) % n, k2 = (k + 1) % n, k3 = (k + 2) % n;
-          d += 'C' + (xs[k] + (xs[k2] - xs[k0]) / 6).toFixed(1) + ',' + (ys[k] + (ys[k2] - ys[k0]) / 6).toFixed(1) +
-               ' ' + (xs[k2] - (xs[k3] - xs[k]) / 6).toFixed(1) + ',' + (ys[k2] - (ys[k3] - ys[k]) / 6).toFixed(1) +
-               ' ' + xs[k2].toFixed(1) + ',' + ys[k2].toFixed(1);
-        }
-        b.el.setAttribute('d', d + 'Z');
+    var VS = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    var FS = [
+      '#extension GL_OES_standard_derivatives : enable',
+      'precision highp float;',
+      'uniform vec2 r;uniform float t;uniform vec2 sd;',
+      'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+      'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);',
+      '  return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+1.),f.x),f.y);}',
+      'float fb(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p*=2.02;a*=.5;}return v;}',
+      'float iso(float z){return 1.-min(abs(fract(z)-.5)/fwidth(z),1.);}',
+      'void main(){',
+      '  vec2 u=gl_FragCoord.xy/r.y+sd;',
+      /* slow drift + a second, faster layer so the terrain breathes as well as slides */
+      '  float f=fb(u*1.6+vec2(t*.018,-t*.012))+.35*fb(u*2.7-vec2(t*.026,t*.02));',
+      '  float z=f*16.;',
+      '  vec3 bg=vec3(.055,.059,.067),steel=vec3(.42,.5,.56),ice=vec3(.66,.72,1.),lav=vec3(.62,.57,.85);',
+      '  vec3 tint=mix(steel,mix(lav,ice,smoothstep(.55,.85,f)),smoothstep(.35,.7,f));',
+      '  vec3 c=bg+steel*.035*f;',
+      '  c=mix(c,tint*.5,iso(z)*.7);',                 /* minor contours */
+      '  c=mix(c,ice*.85,iso(z/5.)*.7);',                /* every 5th line brighter */
+      /* fade toward the centre column so text sits on calm ground */
+      '  float x=gl_FragCoord.x/r.x;float edge=.65+.35*smoothstep(.18,.45,abs(x-.5));',
+      '  gl_FragColor=vec4(mix(bg,c,edge),1.);',
+      '}'
+    ].join('\n');
+
+    function sh(type, src) {
+      var s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return s;
+    }
+    var pr = gl.createProgram();
+    gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS));
+    gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS));
+    gl.linkProgram(pr);
+    if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) {
+      document.documentElement.classList.add('no-topo');
+      return;
+    }
+    gl.useProgram(pr);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(pr, 'p');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    var uR = gl.getUniformLocation(pr, 'r'), uT = gl.getUniformLocation(pr, 't');
+    /* random seed offset: a different landscape on every visit */
+    gl.uniform2f(gl.getUniformLocation(pr, 'sd'), Math.random() * 100, Math.random() * 100);
+
+    function resize() {
+      var d = Math.min(window.devicePixelRatio || 1, 1.5);
+      var w = Math.round(window.innerWidth * d), h = Math.round(window.innerHeight * d);
+      if (cv.width !== w || cv.height !== h) {
+        cv.width = w;
+        cv.height = h;
+        gl.viewport(0, 0, w, h);
       }
+      gl.uniform2f(uR, w, h);
+    }
+
+    var t0 = performance.now(), raf = 0;
+    function frame(ms) {
+      resize();
+      gl.uniform1f(uT, (ms - t0) / 1000);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    function loop(ms) {
+      frame(ms);
+      raf = requestAnimationFrame(loop);
     }
 
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      draw(R(0, 100)); /* one static set of random shapes, no motion */
+      frame(t0); /* one still landscape, no motion */
+      window.addEventListener('resize', function () { frame(t0); });
       return;
     }
-    var start = null;
-    function loop(ms) {
-      if (start === null) start = ms;
-      draw((ms - start) / 1000);
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
+    raf = requestAnimationFrame(loop);
+    document.addEventListener('visibilitychange', function () {
+      cancelAnimationFrame(raf);
+      if (!document.hidden) raf = requestAnimationFrame(loop);
+    });
   })();
   </script>
 </body>
