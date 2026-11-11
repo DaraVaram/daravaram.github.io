@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Mixed Signals: Weight-Space Programming for EEG and ECG"
+date:   2026-11-10 09:00:00 +00:00
+image: /images/BioWSP.png
+categories: other
+author: "Dara Varam"
+authors: "<strong>D. Varam</strong>, T. A. Najafi, D. Atienza"
+venue: "arXiv preprint"
+website: https://daravaram.github.io/BioWSP/
+arxiv: https://arxiv.org/abs/2611.13758
+video: https://daravaram.github.io/BioWSP/#video
+---
+
+We show that frontier language models can debug and even write from scratch every weight of EEG/ECG networks by reasoning alone, matching gradient-descent training with 6x fewer training subjects.
